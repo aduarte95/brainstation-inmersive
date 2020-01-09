@@ -1,0 +1,72 @@
+.container {
+    height: 500px;
+    width: 500px;
+    border: 2px solid salmon;
+    margin: 0 auto;
+}
+
+.all-blocks {
+    width: 180px;
+    margin-top: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    box-sizing: border-box;
+    border: 6px solid;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    padding-left: 19px;
+    padding-top: 15px;
+    float: left;
+    
+}
+
+.block:hover {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari 3-8 */
+    transform: rotate(180deg);
+    transition: 2s;
+    color: white;
+}
+
+.block-container-1 {
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-container-2 {
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-container-3 {
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blue {
+    border-color: blue;
+    color: blue;
+}
+
+.red {
+    border-color: red;
+    color: red;
+}
+
+.green {
+    border-color: rgb(0, 252, 0);
+    color: rgb(0, 252, 0);
+}
+
+.green:hover {
+    background-color: rgb(0, 252, 0);
+}
