@@ -126,6 +126,7 @@
     margin: 0.2em;
     background-image: url(https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019-8/couple-hiking-mountain-climbing-1296x728-header.jpg?w=1155);
     background-size: cover;
+    background-position-y: 30%;
     background-position-x: 70%;
 }
 
