@@ -1,19 +1,159 @@
 .main {
     display: flex;
+    flex-direction: column;
     margin-top: 2em;
 }
 
 .main__section {
     display: flex;
     width: 100%;
+    align-items: baseline;
+    margin-bottom: 2em;
 }
 
 .main__section__label {
     width: 15%;
     margin: 0 2em 0 6em;
     text-align: end;
+    font-family: 'Poppins';
+    color: #acc703;
+    text-transform: uppercase;
 }
 
 .main__section__content {
     margin-left: 2em;
+    flex-grow: 1;
+}
+
+.main__section__content_text {
+    margin-bottom: 2em;
+}
+
+.main__section__content_title {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: darkgray;
+}
+
+.main__section__thumbs_container_v {
+    width: 100%;
+}
+
+.main__section__thumbs_container {
+    width: 100%;
+}
+
+.main__section__thumbs {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    margin: 0 2em 2em;
+}
+
+.main__section__thumbs__group {
+    height: 200px;
+    display: flex;
+}
+
+.main__section__thumbs__group_v {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main__section__content__icons__icon {
+    padding-right: 6em;
+    font-size: 2em;
+    color: black;
+}
+
+.main__section__thumbs__group__background_torres {
+    width: 20%;
+    margin: 0.2em;
+    background-image: url(https://media-exp1.licdn.com/dms/image/C4E0BAQHEGga3DELYcw/company-logo_100_100/0?e=1586995200&v=beta&t=Fx4w2-3GPdiB3nEfVUym8MCfzQT6MTeeIH4jZcPGJK4);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main__section__thumbs__group__background_pv{
+    width: 20%;
+    margin: 0.2em;
+    background-image: url(https://ucrindex.ucr.ac.cr/wp-content/uploads/2015/02/voluntariado.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main__section__thumbs__group__background_hiking {
+    width: 100%;
+    margin: 0.2em;
+    background-image: url(https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019-8/couple-hiking-mountain-climbing-1296x728-header.jpg?w=1155);
+    background-size: cover;
+    background-position-x: 70%;
+}
+
+.main__section__thumbs__group__background_nature{
+    width: 100%;
+    margin: 0.2em;
+    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/00/25/nature-3294681_960_720.jpg);
+    background-size: cover;
+}
+
+.main__section__thumbs__group__background_astronomy {
+    width: 100%;
+    margin: 0.2em;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Grav.lens1.arp.750pix.jpg/220px-Grav.lens1.arp.750pix.jpg);
+}
+
+.hide {
+    display: none;
+}
+
+@media(max-width: 600px) {
+    .main {
+        margin-top:0;
+    }
+
+    .main__section {
+        flex-direction: column;
+    }
+
+    .main__section__label {
+        text-align: center;
+        margin: 0;
+        padding-bottom: 1em ;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main__section__content {
+        width:100%;
+        box-sizing: border-box;
+        padding-left: 4em;
+        margin-left: 0;
+    }
+
+    .main__section__content_text {
+        margin-bottom: 4em;
+    }
+    
+    .main__section__thumbs__group__background_torres, .main__section__thumbs__group__background_pv {
+
+        width: 50%;
+
+    }
+
+    .main__section__content__icons {
+        display: flex;
+        justify-content: space-evenly ;
+    }
+
+    .main__section__content__icons__icon {
+        padding-right: 0;
+    }
+
+    .hide {
+        display: flex;
+    }
 }
