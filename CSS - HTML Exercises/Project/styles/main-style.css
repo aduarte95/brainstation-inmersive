@@ -64,6 +64,7 @@
     text-transform: uppercase;
     color: darkgray;
     font-weight: 600;
+    display: inline;
 }
 
 .main__section__thumbs_container_v {
@@ -172,7 +173,8 @@
     }
 
     .main__section__content_text {
-        margin-bottom: 4em;
+        margin-bottom: 2em;
+        margin-top: 0;
     }
     
     .main__section__thumbs__group__background_torres, .main__section__thumbs__group__background_pv {
