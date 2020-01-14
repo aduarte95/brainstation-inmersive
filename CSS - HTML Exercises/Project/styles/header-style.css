@@ -1,0 +1,74 @@
+.header {
+
+
+}
+
+/*#region header__top*/
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__top__img {
+    background-image: url(https://media-exp1.licdn.com/dms/image/C4E03AQEVFFJPUE2ckQ/profile-displayphoto-shrink_200_200/0?e=1584576000&v=beta&t=YWZ0ZtXscDkXjQumF7VutZ1XP_EczNB4q3ZjGzAgPYM);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 0;
+    width: 15%;
+    padding-bottom: 15%;
+    margin: 0 4em;
+}
+
+.header__top__img__alt {
+    visibility: hidden;
+}
+
+.header__top__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 2em;
+}
+
+.header___top__info__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header___top__info__social__pi {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__top__info__social__pi__icon {
+    margin-left: 1em;
+}
+
+.header__top__info__social__c {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media(max-width: 600px) {
+    .header__top {
+        flex-direction: column;
+        margin: 1em;
+    }
+
+    .header__top__img {
+        width: 50%;
+        padding-bottom: 50%;
+        margin: 0;
+    }
+}
+
+/*#endregion */

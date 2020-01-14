@@ -1,0 +1,41 @@
+.swimlanes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .swimlane__header {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 1em 0.5em 0.5em 1.5em;
+  }
+  
+  .swimlane__columns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  @media (max-width: 600px) {
+    .swimlanes {
+      align-items: center;
+    }
+    .swimlane {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10%;
+      width: 100%;
+    }
+
+    .swimlane__columns {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  }
