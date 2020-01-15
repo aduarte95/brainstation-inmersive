@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 2em;
+
+    min-width: 400px;
 }
 
 .main__section {
@@ -23,6 +25,34 @@
 .main__section__content {
     margin-left: 2em;
     flex-grow: 1;
+    width: 60%;
+    padding-right: 2em;
+}
+
+.main__section__content_skill_li {
+    position: relative;
+    width: 80%;
+}
+
+.main__section__content_skill_li:hover {
+    display: block;
+}
+
+.main__section__content_skill:hover {
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.main__section__content_skill {
+    background-color: white;
+    height: 2em;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
 }
 
 .main__section__content_text {
@@ -33,6 +63,8 @@
     font-size: 1em;
     text-transform: uppercase;
     color: darkgray;
+    font-weight: 600;
+    display: inline;
 }
 
 .main__section__thumbs_container_v {
@@ -63,9 +95,13 @@
 }
 
 .main__section__content__icons__icon {
-    padding-right: 6em;
+    padding-right: 25%;
     font-size: 2em;
     color: black;
+}
+
+.main__section__content__icons__icon:hover {
+    color: #acc703;
 }
 
 .main__section__thumbs__group__background_torres {
@@ -90,6 +126,7 @@
     margin: 0.2em;
     background-image: url(https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019-8/couple-hiking-mountain-climbing-1296x728-header.jpg?w=1155);
     background-size: cover;
+    background-position-y: 30%;
     background-position-x: 70%;
 }
 
@@ -110,13 +147,15 @@
     display: none;
 }
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
     .main {
         margin-top:0;
     }
 
     .main__section {
         flex-direction: column;
+
+        align-items: center;
     }
 
     .main__section__label {
@@ -130,12 +169,13 @@
     .main__section__content {
         width:100%;
         box-sizing: border-box;
-        padding-left: 4em;
+        padding-left: 2em;
         margin-left: 0;
     }
 
     .main__section__content_text {
-        margin-bottom: 4em;
+        margin-bottom: 2em;
+        margin-top: 0;
     }
     
     .main__section__thumbs__group__background_torres, .main__section__thumbs__group__background_pv {
