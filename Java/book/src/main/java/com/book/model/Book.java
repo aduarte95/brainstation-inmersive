@@ -14,13 +14,17 @@ public class Book {
 
     private String author;
     private String name;
+    private String code;
+    private int yearPublished;
 
     public Book(){}
 
-    public Book(Long id, String author, String name) {
+    public Book(String name, String author, String code, int yearPublished) {
         this.id = getId();
         this.author = author;
         this.name = name;
+        this.code = code;
+        this.yearPublished = yearPublished;
     }
 
     public Long getId() {
@@ -42,5 +46,34 @@ public class Book {
     public String getAuthor() {
         return author;
     }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Book book = (Book)obj;
+        boolean haveSameNameAuthor = false;
+
+        if(this.name.equals(book.name) && this.author.equals(book.author)) {
+            haveSameNameAuthor = true;
+        }
+
+        return haveSameNameAuthor;
+    }
+
 }
 

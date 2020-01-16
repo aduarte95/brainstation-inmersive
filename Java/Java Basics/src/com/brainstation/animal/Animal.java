@@ -48,16 +48,13 @@ public class Animal {
 
     @Override
     public boolean equals(Object obj) {
-        Animal anotherAnimal = (Animal)obj;
-        boolean areSameType = false;
-        boolean haveSameClass =  this.getClass().equals(anotherAnimal.getClass());
-        boolean haveSameBornDay = this.bornDay.equals(anotherAnimal.getBornDay());
+        boolean haveSameBornDay = false;
 
-        if(( haveSameClass && haveSameBornDay )) {
-            areSameType = true;
+        if (obj instanceof String) {
+            Animal anotherAnimal = (Animal) obj;
+            haveSameBornDay = this.bornDay.equals(anotherAnimal.getBornDay());
         }
 
-        return areSameType;
+        return haveSameBornDay;
     }
-
 }
