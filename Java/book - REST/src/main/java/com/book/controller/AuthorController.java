@@ -1,6 +1,7 @@
 package com.book.controller;
 
 import com.book.model.Author;
+import com.book.model.Book;
 import com.book.service.AuthorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,9 +53,14 @@ public class AuthorController {
         } else {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
+    @PostMapping(value="/author/{authorId}")
+    public ResponseEntity addBook(@PathVariable String authorId, @RequestBody Book book) {
+        Author authorEntity = this.authorService.addBook(Integer.parseInt(authorId), book);
+
+        return verifyResponse(authorEntity);
+    }
 
     private ResponseEntity verifyResponse(Author authorEntity) {
         if(authorEntity != null){

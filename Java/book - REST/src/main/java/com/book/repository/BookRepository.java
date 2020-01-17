@@ -51,11 +51,11 @@ public class BookRepository {
         }
     }
 
-    public void editBookAuthor(int id, String author) {
+   /* public void editBookAuthor(int id, String author) {
         Book currentBook = getBook(id);
         currentBook.setAuthor(author);
     }
-
+*/
     public ArrayList<Book> getAll() {
         return this.books;
     }

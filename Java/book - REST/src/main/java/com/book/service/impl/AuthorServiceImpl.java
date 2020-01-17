@@ -1,6 +1,7 @@
 package com.book.service.impl;
 
 import com.book.dto.AuthorDTO;
+import com.book.exception.RepeatedNameException;
 import com.book.model.Author;
 import com.book.model.Book;
 import com.book.repository.AuthorRepository;
@@ -24,6 +25,8 @@ public class AuthorServiceImpl implements AuthorService {
         ArrayList<Book> books = dto.getBooks();
         String name = dto.getName();
         int dtoId = dto.getId();
+
+        System.out.println(dto.getId());
         String date = dto.getBornDate();
 
         return new Author(dtoId, name, books, date);
@@ -91,6 +94,21 @@ public class AuthorServiceImpl implements AuthorService {
         }
 
         return authorList;
+    }
+
+    @Override
+    public Author addBook(int id, Book book) {
+        if(this.authorRepository.exist(id)) {
+            if(!this.authorRepository.existBook(id, book)) {
+                AuthorDTO dto = this.authorRepository.addBook(id, book);
+
+                return setModel(dto);
+            } else {
+                throw new RepeatedNameException("The book exists.");
+            }
+        } else {
+            return null;
+        }
     }
 
 }

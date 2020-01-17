@@ -12,16 +12,14 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String author;
     private String name;
     private String code;
     private int publishedYear;
 
     public Book(){}
 
-    public Book(String name, String author, String code, int publishedYear) {
-        this.id = getId();
-        this.author = author;
+    public Book(Long id, String name, String code, int publishedYear) {
+        this.id = id;
         this.name = name;
         this.code = code;
         this.publishedYear = publishedYear;
@@ -37,14 +35,6 @@ public class Book {
 
     public String getName() {
         return name;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     public void setCode(String code) {
@@ -68,7 +58,7 @@ public class Book {
         Book book = (Book)obj;
         boolean haveSameNameAuthor = false;
 
-        if(this.name.equals(book.name) && this.author.equals(book.author)) {
+        if(this.name.equals(book.name)) {
             haveSameNameAuthor = true;
         }
 

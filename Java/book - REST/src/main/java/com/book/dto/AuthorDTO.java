@@ -17,7 +17,6 @@ public class AuthorDTO {
     private String bornDate;
 
     public AuthorDTO(){
-
     }
 
     public AuthorDTO(int id, String name, ArrayList<Book> books, String bornDate) {
@@ -57,5 +56,12 @@ public class AuthorDTO {
 
     public String getBornDate() {
         return  bornDate;
+    }
+
+    public void addBook(Book book) {
+        if(this.books == null) {
+            this.books = new ArrayList<Book>();
+        }
+        this.books.add(book);
     }
 }

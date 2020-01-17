@@ -64,7 +64,7 @@ public class BookServiceImpl implements BookService {
     public boolean validateBook(Book book) {
         boolean hasEmptyFields = false;
 
-        if (book.getName() == null || book.getAuthor() == null) {
+        if (book.getName() == null /*|| book.getAuthor() == null*/) {
             hasEmptyFields = true;
         }
 
@@ -97,7 +97,7 @@ public class BookServiceImpl implements BookService {
     }
 
     public void updateBookAuthor(int id, String author) {
-        this.bookRepository.editBookAuthor(id, author);
+      //  this.bookRepository.editBookAuthor(id, author);
         this.books = getAll();
     }
 
@@ -112,7 +112,7 @@ public class BookServiceImpl implements BookService {
 
             while (listIterator.hasNext()) {
                 currentBook = listIterator.next();
-                System.out.println("Book name:" + currentBook.getName() + "author: " + currentBook.getAuthor());
+                System.out.println("Book name:" + currentBook.getName()/* + "author: " + currentBook.getAuthor()*/);
             }
         }
     }

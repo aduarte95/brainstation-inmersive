@@ -1,6 +1,7 @@
 package com.book.repository;
 
 import com.book.dto.AuthorDTO;
+import com.book.model.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -72,7 +73,39 @@ public class AuthorRepository {
         }
     }
 
+    public AuthorDTO addBook(int id, Book book) {
+        ListIterator<AuthorDTO> listIterator = dtos.listIterator();
+        AuthorDTO currentAuthorDTO = null;
+        boolean found = false;
+
+        while (!found && listIterator.hasNext()) {
+            currentAuthorDTO = listIterator.next();
+
+            if (currentAuthorDTO.getId() == id) {
+                currentAuthorDTO.addBook(book);
+              //  listIterator.set(currentAuthorDTO);
+                found = true;
+            }
+        }
+
+        return currentAuthorDTO;
+    }
+
     public ArrayList<AuthorDTO> getAll() {
+        System.out.println(this.dtos.get(0).getId());
         return this.dtos;
+    }
+
+    public boolean existBook(int id, Book book) {
+        AuthorDTO dto = getAuthor(id);
+
+        if(dto.getBooks() != null) {
+            return dto.getBooks().stream().anyMatch(
+                    bookDTO ->
+                            bookDTO.getName().equals(book.getName())
+            );
+        } else {
+            return false;
+        }
     }
 }
