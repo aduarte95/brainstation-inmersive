@@ -44,6 +44,7 @@ public class AuthorServiceImpl implements AuthorService {
         AuthorDTO dto = new AuthorDTO();
         dto.setBooks(author.getBooks());
         dto.setBornDate(author.getBornDate());
+        dto.setName(author.getName());
         dto.setId(author.getId());
 
         return dto;
@@ -53,6 +54,7 @@ public class AuthorServiceImpl implements AuthorService {
         Author author = new Author();
         author.setBooks(dto.getBooks());
         author.setBornDate(dto.getBornDate());
+        author.setName(dto.getName());
 
         return author;
     }

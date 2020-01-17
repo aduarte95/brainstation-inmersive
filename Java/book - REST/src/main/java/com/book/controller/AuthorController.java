@@ -11,7 +11,7 @@ import javax.xml.ws.Response;
 import java.awt.*;
 import java.util.ArrayList;
 
-@Controller
+@RestController
 public class AuthorController {
     private AuthorService authorService;
 
@@ -19,7 +19,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @GetMapping(value = "/authors")
+    @GetMapping(value = "/author")
     public ArrayList<Author> getAuthor() {
         return (ArrayList<Author>) this.authorService.getAll();
     }
