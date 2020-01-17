@@ -50,7 +50,7 @@ public class Animal {
     public boolean equals(Object obj) {
         boolean haveSameBornDay = false;
 
-        if (obj instanceof String) {
+        if (obj instanceof Animal) {
             Animal anotherAnimal = (Animal) obj;
             haveSameBornDay = this.bornDay.equals(anotherAnimal.getBornDay());
         }
