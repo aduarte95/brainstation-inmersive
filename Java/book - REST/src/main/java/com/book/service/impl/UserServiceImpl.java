@@ -6,8 +6,6 @@ import com.book.repository.UserRepository;
 import com.book.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
@@ -18,9 +16,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean verifyPassword(User user) {
-        UserDTO userDTO = setDTO(user);
+        boolean validPassword = false;
 
-        return this.userRepository.verifyPassword(userDTO);
+        if(verifyUser(user)) {
+            UserDTO userDTO = setDTO(user);
+            validPassword = this.userRepository.verifyPassword(userDTO);
+        }
+
+        return validPassword;
+    }
+
+    private boolean verifyUser(User user) {
+        boolean validUser = false;
+
+        if(user != null) {
+            if(user.getUsername() != null && user.getPassword() != null) {
+                validUser = true;
+            }
+        }
+
+        return validUser;
     }
 
     private UserDTO setDTO(User user) {
