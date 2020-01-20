@@ -13,14 +13,13 @@ import org.slf4j.LoggerFactory;
 public class TokenUtils {
     private static final Logger logger = LoggerFactory.getLogger(TokenUtils.class);
 
-    public static String createToken(String username, String url) {
+    public static String createToken(String username) {
         String token="";
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             token = JWT.create()
                     .withIssuer("auth0")
                     .withClaim("username", username)
-                    .withClaim("url", url)
                     .sign(algorithm);
         } catch (JWTCreationException exception){
             logger.error("Couldn't create token. Invalid configuration.");
@@ -29,20 +28,20 @@ public class TokenUtils {
         return token;
     }
 
-    public static DecodedJWT verifyToken(String token, String username, String url) {
-        DecodedJWT jw = null;
+    public static boolean verifyToken(String token, String username) {
+        boolean tokenAccepted = false;
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer("auth0")
                     .withClaim("username", username)
-                    .withClaim("url", url)
                     .build(); //Reusable verifier instance
-            jw = verifier.verify(token);
+            verifier.verify(token);
+            tokenAccepted = true;
         } catch (JWTVerificationException exception) {
             logger.error("Invalid token");
         }
 
-        return jw;
+        return tokenAccepted;
     }
 }

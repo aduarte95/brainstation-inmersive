@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Author {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private ArrayList<Book> books;
     private String name;
@@ -23,6 +21,10 @@ public class Author {
         this.name = name;
         this.books = books;
         this.bornDate = bornDate;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

@@ -2,20 +2,25 @@ package com.book.controller;
 
 import com.book.model.Author;
 import com.book.model.Book;
+import com.book.model.User;
 import com.book.service.AuthorService;
+import com.book.service.UserService;
 import com.book.utils.TokenUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @RestController
 public class AuthorController {
     private AuthorService authorService;
+    private UserService userService;
 
-    public AuthorController(AuthorService authorService) {
+    public AuthorController(AuthorService authorService, UserService userService) {
         this.authorService = authorService;
+        this.userService = userService;
     }
 
     @GetMapping(value = "/author")
@@ -24,22 +29,26 @@ public class AuthorController {
     }
 
     @PostMapping(value = "/login")
-    public String getToken(@RequestHeader String username) {
-        return TokenUtils.createToken(username, "localhost:8080");
+    public ResponseEntity getToken(@RequestBody User user) {
+        if (this.userService.verifyPassword(user.getPassword())) {
+            return new ResponseEntity(TokenUtils.createToken(user.getUsername()), HttpStatus.OK); ;
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping(value = "/verifyToken")
     public ResponseEntity verifyToken(@RequestHeader String token, @RequestHeader String username) {
-        if(TokenUtils.verifyToken(token, username, "localhost:8080" ) != null){
-            return new ResponseEntity(HttpStatus.OK);
+        if(TokenUtils.verifyToken(token, username)){
+            return new ResponseEntity("Token accepted", HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 
     @GetMapping(value = "/author/{authorId}")
-    public Author getAuthor(@PathVariable String authorId) {
-        return this.authorService.getAuthor(Integer.parseInt(authorId));
+    public Author getAuthor(@PathVariable String authorId, @RequestBody User user) {
+            return this.authorService.getAuthor(Integer.parseInt(authorId));
     }
 
     @PostMapping(value="/author")

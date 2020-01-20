@@ -92,7 +92,6 @@ public class AuthorRepository {
     }
 
     public ArrayList<AuthorDTO> getAll() {
-        System.out.println(this.dtos.get(0).getId());
         return this.dtos;
     }
 
