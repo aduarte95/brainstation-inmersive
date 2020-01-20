@@ -28,14 +28,11 @@ public class TokenUtils {
         return token;
     }
 
-    public static boolean verifyToken(String token, String username) {
+    public static boolean verifyToken(String token) {
         boolean tokenAccepted = false;
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
-            JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer("auth0")
-                    .withClaim("username", username)
-                    .build(); //Reusable verifier instance
+            JWTVerifier verifier = JWT.require(algorithm).build();
             verifier.verify(token);
             tokenAccepted = true;
         } catch (JWTVerificationException exception) {
