@@ -3,6 +3,7 @@ package com.book.controller;
 import com.book.model.Author;
 import com.book.model.Book;
 import com.book.service.AuthorService;
+import com.book.utils.TokenUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,20 @@ public class AuthorController {
     @GetMapping(value = "/author")
     public ArrayList<Author> getAuthor() {
         return (ArrayList<Author>) this.authorService.getAll();
+    }
+
+    @PostMapping(value = "/login")
+    public String getToken(@RequestHeader String username) {
+        return TokenUtils.createToken(username, "localhost:8080");
+    }
+
+    @GetMapping(value = "/verifyToken")
+    public ResponseEntity verifyToken(@RequestHeader String token, @RequestHeader String username) {
+        if(TokenUtils.verifyToken(token, username, "localhost:8080" ) != null){
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
     @GetMapping(value = "/author/{authorId}")

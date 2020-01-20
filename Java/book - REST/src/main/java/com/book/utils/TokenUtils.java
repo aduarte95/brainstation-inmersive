@@ -29,7 +29,8 @@ public class TokenUtils {
         return token;
     }
 
-    public static void verifyToken(String token, String username, String url) {
+    public static DecodedJWT verifyToken(String token, String username, String url) {
+        DecodedJWT jw = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             JWTVerifier verifier = JWT.require(algorithm)
@@ -37,9 +38,11 @@ public class TokenUtils {
                     .withClaim("username", username)
                     .withClaim("url", url)
                     .build(); //Reusable verifier instance
-            verifier.verify(token);
+            jw = verifier.verify(token);
         } catch (JWTVerificationException exception) {
             logger.error("Invalid token");
         }
+
+        return jw;
     }
 }
