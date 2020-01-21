@@ -5,15 +5,15 @@ import com.book.model.Book;
 import java.util.ArrayList;
 
 public interface BookService {
-    public void createBook(Book book);
+    public Book createBook(Book book);
 
     public Book getBook(int id);
 
-    public void deleteBook(int id);
+    // public void deleteBook(int id);
 
-    public void updateBookAuthor(int id, String author);
+   // public void updateBookAuthor(int id, String author);
 
     public ArrayList<Book> getAll();
 
-    public void printList();
+    //public void printList();
 }

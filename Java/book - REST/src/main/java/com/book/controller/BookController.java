@@ -22,7 +22,7 @@ public class BookController {
         return this.bookService.getBook(id);
     }
 
-    public void deleteBook(int id) {
+  /*  public void deleteBook(int id) {
         this.bookService.deleteBook(id);
     }
 
@@ -32,6 +32,6 @@ public class BookController {
 
     public void printList() {
        this.bookService.printList();
-    }
+    }*/
 }
 

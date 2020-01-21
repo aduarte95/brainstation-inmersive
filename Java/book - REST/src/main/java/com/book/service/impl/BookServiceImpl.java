@@ -1,67 +1,69 @@
 package com.book.service.impl;
 
+import com.book.dto.BookDTO;
+import com.book.model.Author;
 import com.book.model.Book;
 import com.book.repository.BookRepository;
 import com.book.service.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 @Service
 public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
-    private ArrayList<Book> books;
 
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-        this.books = getAll();
     }
 
-    public void createBook(Book book) {
-        boolean canCreate = true;
+    public Book createBook(Book book) {
+        if (validateCanCreate(book)) {
+            this.bookRepository.addBook(setDTO(book));
 
-        if (this.books != null) {
-            canCreate = validateCanCreate(book);
+            return book;
+        } else {
+            return null;
         }
-
-        if (canCreate) {
-            this.bookRepository.addBook(book);
-        }
-
-        this.books = getAll();
     }
 
-    public boolean validateCanCreate(Book book) {
-        boolean canCreate = true;
-        boolean existSameCode = searchCode(book.getCode());
-        boolean hasEmptyFields = validateBook(book);
-        boolean haveSameNameAuthor = searchRecurrences(book);
+    public Book getBook(int id) {
+        BookDTO bookDTO = this.bookRepository.getBook(id);
 
-        if (hasEmptyFields || !haveSameNameAuthor || existSameCode) {
-            canCreate = false;
+        return setModel(bookDTO);
+    }
+
+    public ArrayList<Book> getAll() {
+        ArrayList<BookDTO> bookDTOList = this.bookRepository.getAll();
+        ArrayList<Book> bookList = new ArrayList<Book>();
+
+        for(BookDTO e: bookDTOList){
+            bookList.add(setModel(e));
         }
 
+        return bookList;
+    }
+
+    private boolean validateCanCreate(Book book) {
+        boolean canCreate = false;
+        if (book != null) {
+
+            boolean existSameCode = existsCode(book.getCode());
+            boolean hasEmptyFields = validateBook(book);
+            boolean haveSameNameAuthor = searchRecurrences(book);
+
+            if (!hasEmptyFields && !haveSameNameAuthor && !existSameCode) {
+                canCreate = true;
+            }
+        }
         return canCreate;
     }
 
-    public boolean searchCode(String code) {
-        ListIterator<Book> listIterator = books.listIterator();
-        Book currentBook = new Book();
-        boolean haveSameCode = false;
-
-        while (!haveSameCode && listIterator.hasNext()) {
-            currentBook = listIterator.next();
-
-            if (currentBook.getCode().equals(code)) {
-                haveSameCode = true;
-            }
-        }
-
-        return haveSameCode;
+    private boolean existsCode(String code) {
+        return this.bookRepository.existsCode(code);
     }
 
-    public boolean validateBook(Book book) {
+    private boolean validateBook(Book book) {
         boolean hasEmptyFields = false;
 
         if (book.getName() == null /*|| book.getAuthor() == null*/) {
@@ -71,40 +73,43 @@ public class BookServiceImpl implements BookService {
         return hasEmptyFields;
     }
 
-    public boolean searchRecurrences(Book book) {
-        ListIterator<Book> listIterator = books.listIterator();
-        Book currentBook;
-        boolean haveSameNameAuthor = false;
+    private BookDTO setDTO(Book book) {
+        BookDTO bookDTO = new BookDTO();
+        bookDTO.setCode(book.getCode());
+        bookDTO.setName(book.getName());
+        bookDTO.setPublishedYear(book.getPublishedYear());
+        bookDTO.setId(book.getId());
 
-        while (!haveSameNameAuthor && listIterator.hasNext()) {
-            currentBook = listIterator.next();
-
-            if (currentBook.equals(book)) {
-                haveSameNameAuthor = true;
-            }
-        }
-
-        return haveSameNameAuthor;
+        return bookDTO;
     }
 
-    public Book getBook(int id) {
-        return this.bookRepository.getBook(id);
+    private Book setModel(BookDTO bookDTO) {
+        Book book = new Book();
+        book.setCode(bookDTO.getCode());
+        book.setName(bookDTO.getName());
+        book.setPublishedYear(bookDTO.getPublishedYear());
+        book.setId(bookDTO.getId());
+
+        return book;
     }
 
-    public void deleteBook(int id) {
+    private boolean searchRecurrences(Book book) {
+        BookDTO bookDTO = setDTO(book);
+
+        return this.bookRepository.searchRecurrences(bookDTO);
+    }
+
+     /*public void deleteBook(int id) {
         this.bookRepository.deleteBook(id);
         this.books = getAll();
-    }
+    }*/
 
-    public void updateBookAuthor(int id, String author) {
+   /* public void updateBookAuthor(int id, String author) {
       //  this.bookRepository.editBookAuthor(id, author);
         this.books = getAll();
-    }
+    }*/
 
-    public ArrayList<Book> getAll() {
-        return this.books;
-    }
-
+       /*
     public void printList() {
         if (this.books != null) {
             ListIterator<Book> listIterator = this.books.listIterator();
@@ -112,9 +117,11 @@ public class BookServiceImpl implements BookService {
 
             while (listIterator.hasNext()) {
                 currentBook = listIterator.next();
-                System.out.println("Book name:" + currentBook.getName()/* + "author: " + currentBook.getAuthor()*/);
+                System.out.println("Book name:" + currentBook.getName()/* + "author: " + currentBook.getAuthor());
             }
         }
     }
+    */
+
 }
 

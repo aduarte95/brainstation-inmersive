@@ -1,5 +1,6 @@
 package com.book.repository;
 
+import com.book.dto.BookDTO;
 import com.book.model.Book;
 import org.springframework.stereotype.Repository;
 
@@ -8,27 +9,25 @@ import java.util.ListIterator;
 
 @Repository
 public class BookRepository {
-    ArrayList<Book> books = new ArrayList<Book>();
+    ArrayList<BookDTO> books = new ArrayList<BookDTO>();
 
     // Create Read Delete Update
 
-    public void addBook(Book book) {
-        this.books.add(book);
+    public void addBook(BookDTO book) {
+        if(this.books != null) {
+            this.books.add(book);
+        }
     }
 
-    public Book getBook(int id) {
-        ListIterator<Book> listIterator = books.listIterator();
-        Book currentBook = new Book();
+    public BookDTO getBook(int id) {
+        ListIterator<BookDTO> listIterator = books.listIterator();
+        BookDTO currentBook = new BookDTO();
         boolean found = false;
-
-        for(Book current: books) {
-
-        }
 
         while (!found && listIterator.hasNext()) {
             currentBook = listIterator.next();
 
-            if (currentBook.getId().equals(id)) {
+            if (currentBook.getId() == (id)) {
                 found = true;
             }
         }
@@ -36,7 +35,23 @@ public class BookRepository {
         return currentBook;
     }
 
-    public void deleteBook(int id) {
+    public boolean searchRecurrences(BookDTO bookDTO) {
+        ListIterator<BookDTO> listIterator = books.listIterator();
+        BookDTO currentBook;
+        boolean haveSameNameAuthor = false;
+
+        while (!haveSameNameAuthor && listIterator.hasNext()) {
+            currentBook = listIterator.next();
+
+            if (currentBook.equals(bookDTO)) {
+                haveSameNameAuthor = true;
+            }
+        }
+
+        return haveSameNameAuthor;
+    }
+
+   /* public boolean deleteBook(int id) {
         ListIterator listIterator = books.listIterator();
         Book currentBook;
         boolean found = false;
@@ -49,14 +64,26 @@ public class BookRepository {
                 listIterator.remove();
             }
         }
+        return found;
+    }*/
+
+    public ArrayList<BookDTO> getAll() {
+        return this.books;
     }
 
-   /* public void editBookAuthor(int id, String author) {
-        Book currentBook = getBook(id);
-        currentBook.setAuthor(author);
-    }
-*/
-    public ArrayList<Book> getAll() {
-        return this.books;
+    public boolean existsCode(String code) {
+        ListIterator<BookDTO> listIterator = books.listIterator();
+        BookDTO currentBook;
+        boolean haveSameCode = false;
+
+        while (!haveSameCode && listIterator.hasNext()) {
+            currentBook = listIterator.next();
+
+            if (currentBook.getCode().equals(code)) {
+                haveSameCode = true;
+            }
+        }
+
+        return haveSameCode;
     }
 }

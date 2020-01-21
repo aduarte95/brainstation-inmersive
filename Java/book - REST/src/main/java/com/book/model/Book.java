@@ -5,12 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public class Book {
-    // Id of the book
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String name;
     private String code;
@@ -18,14 +14,18 @@ public class Book {
 
     public Book(){}
 
-    public Book(Long id, String name, String code, int publishedYear) {
+    public Book(int id, String name, String code, int publishedYear) {
         this.id = id;
         this.name = name;
         this.code = code;
         this.publishedYear = publishedYear;
     }
 
-    public Long getId() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
         return id;
     }
 

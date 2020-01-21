@@ -1,8 +1,12 @@
 package com.book.service;
 
+import com.book.dto.AuthorDTO;
+import com.book.model.Author;
 import com.book.model.Book;
 import com.book.repository.BookRepository;
 import com.book.service.impl.BookServiceImpl;
+import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -17,13 +21,24 @@ public class BookServiceServiceTests {
     @InjectMocks
     BookServiceImpl bookService;
 
-    @Test
-    public void test_ValidateEmptyBook(){
-        Book book = new Book();
+    Book book;
+
+    @BeforeEach
+    public void init(){
+
+        book = new Book();
+        book.setId(1);
         book.setCode("1");
         book.setName("Brave World");
         book.setPublishedYear(1954);
-        this.bookService.createBook(book);
-
     }
+
+    @Test
+    public void test_CreateBookSuccess() {
+        Book createdBook = this.bookService.createBook(book);
+
+        Assert.assertNotNull(createdBook);
+    }
+
+
 }
