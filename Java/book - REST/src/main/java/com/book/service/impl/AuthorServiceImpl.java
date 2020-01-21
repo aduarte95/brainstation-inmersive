@@ -26,7 +26,6 @@ public class AuthorServiceImpl implements AuthorService {
         String name = dto.getName();
         int dtoId = dto.getId();
 
-        System.out.println(dto.getId());
         String date = dto.getBornDate();
 
         return new Author(dtoId, name, books, date);
@@ -41,26 +40,6 @@ public class AuthorServiceImpl implements AuthorService {
         } else {
             return null;
         }
-    }
-
-    public AuthorDTO setDTO(Author author) {
-        AuthorDTO dto = new AuthorDTO();
-        dto.setBooks(author.getBooks());
-        dto.setBornDate(author.getBornDate());
-        dto.setName(author.getName());
-        dto.setId(author.getId());
-
-        return dto;
-    }
-
-    public Author setModel(AuthorDTO dto) {
-        Author author = new Author();
-        author.setBooks(dto.getBooks());
-        author.setBornDate(dto.getBornDate());
-        author.setName(dto.getName());
-        author.setId(dto.getId());
-
-        return author;
     }
 
     @Override
@@ -112,4 +91,23 @@ public class AuthorServiceImpl implements AuthorService {
         }
     }
 
+    private AuthorDTO setDTO(Author author) {
+        AuthorDTO dto = new AuthorDTO();
+        dto.setBooks(author.getBooks());
+        dto.setBornDate(author.getBornDate());
+        dto.setName(author.getName());
+        dto.setId(author.getId());
+
+        return dto;
+    }
+
+    private Author setModel(AuthorDTO dto) {
+        Author author = new Author();
+        author.setBooks(dto.getBooks());
+        author.setBornDate(dto.getBornDate());
+        author.setName(dto.getName());
+        author.setId(dto.getId());
+
+        return author;
+    }
 }
