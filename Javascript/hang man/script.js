@@ -2,7 +2,8 @@ var words = ['hola', 'caballo', 'jaja']
 var selectedWord;
 var state = {
     cont: 0,
-    length: 0
+    length: 0,
+    imgCont: 2
 };
 
 function init() {
@@ -33,11 +34,33 @@ function init() {
     }
 }
 
-function win(){
+function verifyState(){
+    
+    if(state.cont === state.length) {
+        win();
+    } else if(state.imgCont === 11) {
+        lose();
+    }
+    
+}
+
+function win() {
     for(let i = 0; i < 26; ++i) {
         buttonLetter = document.getElementById('abc-letter'+ i);
         buttonLetter.disabled = true;
     }
+}
+
+function lose() {
+    for(let i = 0; i < 26; ++i) {
+        buttonLetter = document.getElementById('abc-letter'+ i);
+        buttonLetter.disabled = true;
+    }
+}
+
+function disableABCLetter(i){
+    buttonLetter = document.getElementById('abc-letter'+ i);
+    buttonLetter.disabled = true;
 }
 
 
@@ -46,23 +69,27 @@ function verifyLetter() {
     var fillLetter;
     var buttonLetter;
     var asciiCode;
+    var img;
+    var match = false;
 
     [...selectedWord].forEach(
         function(letter, i) {
             if(letter === abcLetter) {
+                match = true;
                 state[letter] = true;
                 state.cont++
                 fillLetter = document.getElementById('letter'+i);
                 buttonLetter = document.getElementById('abc-letter'+ (abcLetter.charCodeAt(0)-97).toString());
                 fillLetter.innerHTML = abcLetter;
-                buttonLetter.disabled = true;
-            } else {
-                
             }
         }
     )
 
-    if(state.cont == state.length) {
-    win();
+    if(match == false) {
+        console.log(state.imgCont);
+                img = document.querySelector('.hangman-img');
+                img.style.backgroundImage = 'url(assets/'+ state.imgCont++ + '.svg)';
     }
+
+    verifyState();
 }
