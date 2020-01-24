@@ -2,35 +2,35 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./dist/style.css">
         <title>Hangman</title>
     </head>
 
     <body onload="init()">
         <div class="container">
-            <h1 class="title">Hangman</h1>
-            <div class="container-game">
-            <div class="game">
-                <div class="hangman-img"></div>
-                <div class="word-container">
-                    <div class="word"></div>
-                    <div class="abc"></div>
+            <h1 class="container__title">Hangman</h1>
+            <div class="container__game-container">
+            <div class="container__game">
+                <div class="container__hangman-img"></div>
+                <div class="container__word-container">
+                    <div class="container__word"></div>
+                    <div class="container__abc"></div>
                 </div>
             </div>
         </div>
-        <div id="myModal" class="modal">
+        <div id="modal" class="modal">
 
             <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p class="modal-text"></p>
+            <div class="modal__content">
+                <span class="modal__close">&times;</span>
+                <p class="modal__text"></p>
                 <a 
-                class="pokemon-details"
+                class="modal__pokemon-details"
                > View pokemon details </button>
             </div>
           
         </div>
     </div>
     </body>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
 </html>

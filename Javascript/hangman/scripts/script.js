@@ -22,27 +22,27 @@ function init() {
             selectedWord = words[wordIndex];
             state.length = selectedWord.length;
 
-            var word = document.querySelector('.word');
-            var abc = document.querySelector('.abc');
+            var word = document.querySelector('.container__word');
+            var abc = document.querySelector('.container__abc');
             var node;
 
             for(let i = 0; i < selectedWord.length; ++i) {
                 node = document.createElement('div');
-                node.className = 'letter'
-                node.id = 'letter' + i
+                node.className = 'container__letter container--uppercase'
+                node.id = 'container__letter' + i
                 word.appendChild(node)
             }
 
             for(let i = 0; i < 26; ++i) {
                 node = document.createElement('button');
                 node.innerHTML = String.fromCharCode(i+97);
-                node.className = 'abc-letter'
-                node.id = 'abc-letter' + i
+                node.className = 'container__abc-letter container--uppercase'
+                node.id = 'container__abc-letter' + i
                 node.addEventListener('click', verifyLetter);
                 abc.appendChild(node)
             }
 
-            var ref = document.querySelector('.pokemon-details');
+            var ref = document.querySelector('.modal__pokemon-details');
             ref.href = 'pokemonDetails.html?id=' + wordIndex;
         }
     )
@@ -69,7 +69,7 @@ function win() {
 
 function lose() {
     this.disabledAllLetters();
-    this.openDialog('You lose! :( <br> The correct answer was <span class=\"selected-word\">' + selectedWord + '</span>');
+    this.openDialog('You lose! :( <br> The correct answer was <span class=\"container--uppercase\">' + selectedWord + '</span>');
     setTimeout(() => reload(), 1000);
 }
 
@@ -86,7 +86,7 @@ function enableAllLetters(){
 }
 
 function toggleABCLetter(i, isDisabled){
-    buttonLetter = document.getElementById('abc-letter'+ i);
+    buttonLetter = document.getElementById('container__abc-letter'+ i);
     buttonLetter.disabled = isDisabled;
 }
 
@@ -105,15 +105,15 @@ function verifyLetter() {
             if(letter === abcLetter) {
                 match = true;
                 state.cont++
-                fillLetter = document.getElementById('letter' + i);
-                buttonLetter = document.getElementById('abc-letter'+ abcLetteraAscci);
+                fillLetter = document.getElementById('container__letter' + i);
+                buttonLetter = document.getElementById('container__abc-letter'+ abcLetteraAscci);
                 fillLetter.innerHTML = abcLetter;
             }
         }
     )
 
     if(match == false) {
-        img = document.querySelector('.hangman-img');
+        img = document.querySelector('.container__hangman-img');
         img.style.backgroundImage = 'url(assets/'+ state.imgCont++ + '.svg)';
     }
 
@@ -122,14 +122,11 @@ function verifyLetter() {
 
 function openDialog(msg) {
     // Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var modal = document.getElementById("modal");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var modalText = document.querySelector(".modal-text");
+var span = document.getElementsByClassName("modal__close")[0];
+var modalText = document.querySelector(".modal__text");
 modalText.innerHTML = msg;
 modal.style.display = "block";
 

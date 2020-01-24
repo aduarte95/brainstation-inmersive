@@ -30,7 +30,7 @@ function init(){
 }
 
 function setName() {
-    var pokemonName = document.getElementsByClassName("pokemon-name");
+    var pokemonName = document.getElementsByClassName("container__pokemon-name");
 
     for(i = 0; i < pokemonName.length; ++i) {
         pokemonName[i].innerHTML = this.pokemon.name
@@ -38,7 +38,7 @@ function setName() {
 }
 
 function setSprites(){
-    var sprites = document.querySelector(".sprites");
+    var sprites = document.querySelector(".container__sprites");
     var node = document.createElement('img');
 
     node.src = this.pokemon.sprites.back_default;
@@ -50,18 +50,18 @@ function setSprites(){
 }
 
 function setWeight() {
-    var weight = document.querySelector(".weight");
+    var weight = document.querySelector(".container__weight");
     weight.innerHTML = pokemon.weight;
 }
 
 function setAbilities() {
-    var abilities = document.querySelector(".abilities");
+    var abilities = document.querySelector(".container__abilities");
     var node;
 
     for(let i = 0; i < pokemon.abilities.length; ++i) {
         node = document.createElement('p');
         node.innerHTML = this.pokemon.abilities[i].ability.name;
-        node.className = 'content'
+        node.className = 'container__content'
         abilities.appendChild(node)
     }
 }
@@ -78,20 +78,20 @@ function setMoves() {
         }
     }    
 
-    var moves = document.querySelector(".moves");
+    var moves = document.querySelector(".container__moves");
     var node;
 
     for(let i = 0; i < randomNumbers.length; ++i) {
         node = document.createElement('p');
         node.innerHTML = this.pokemon.moves[i].move.name;
-        node.className = 'content'
+        node.className = 'container__content'
         moves.appendChild(node)
     }
     
 }
 
 function setEvolutionChain(evolution) {
-    var evolutionChain = document.querySelector(".evolution-chain");
+    var evolutionChain = document.querySelector(".container__evolution-chain");
     var node;
 
     var evolvesTo = evolution.chain.evolves_to
@@ -100,7 +100,7 @@ function setEvolutionChain(evolution) {
     while(evolvesTo[0] != null) {
         node = document.createElement('p');
         node.innerHTML = evolutionName;
-        node.className = 'content'
+        node.className = 'container__content'
         evolutionChain.appendChild(node)
         
         evolutionName = evolvesTo[0].species.name

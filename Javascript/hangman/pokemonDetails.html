@@ -2,29 +2,29 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="pokemonDetails.css">
+        <link rel="stylesheet" type="text/css" href="./dist/pokemonDetails.css">
         <title class="pokemon-name"></title>
     </head>
 
     <body onload="init()">
         <div class="container">
-            <div class="screen">
-                <h1 class="pokemon-name"></h1>
-                <div class="sprites"></div>
+            <div class="container__screen">
+                <h1 class="container__pokemon-name"></h1>
+                <div class="container__sprites"></div>
 
-                <h2 class="subtitles">Weight</h2>
-                <p class="content weight"></p>
+                <h2 class="container__subtitles">Weight</h2>
+                <p class="container__content container__weight"></p>
 
-                <h2 class="subtitles">Abilities</h2>
-                <div class="abilities"></div>
+                <h2 class="container__subtitles">Abilities</h2>
+                <div class="container__abilities"></div>
 
-                <h2 class="subtitles">Moves</h2>
-                <div class="moves"></div>
+                <h2 class="container__subtitles">Moves</h2>
+                <div class="container__moves"></div>
 
-                <h2 class="subtitles">Evolution Chain</h2>
-                <div class="evolution-chain"></div>
+                <h2 class="container__subtitles">Evolution Chain</h2>
+                <div class="container__evolution-chain"></div>
             </div>
         </div>
     </body>
-    <script src="pokemonDetails.js"></script>
+    <script src="./scripts/pokemonDetails.js"></script>
 </html>
