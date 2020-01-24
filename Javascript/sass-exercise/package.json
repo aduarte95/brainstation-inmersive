@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "node-sass --include-path scss --watch scss/main.scss dist/main.css",
-    "dev": "reload -p 8081 -b | node-sass --include-path scss --watch scss/main.scss dist/main.css"
+    "dev": "reload -p 8081 -b | node-sass --include-path scss --watch scss/* dist/main.css"
   },
   "author": "Alexa Duarte",
   "license": "ISC",
