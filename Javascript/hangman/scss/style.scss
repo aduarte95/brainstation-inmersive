@@ -1,3 +1,5 @@
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+
 $font-family: 'Patrick Hand', cursive;
 $font-size: 0.56em;
 $enabledColor: #4CAF50;
@@ -17,9 +19,6 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
     position: relative;
 
     &--uppercase {
@@ -31,15 +30,6 @@ body {
         margin-top: 0;
     }
     
-    &__game-container{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: absolute;
-        justify-content: center;
-        width: 100%;
-    }
-    
     &__game {
         display: flex;
         flex-direction: row;
@@ -49,8 +39,7 @@ body {
 
     &__hangman-img {
         background-image: url(assets/1.svg);
-        width: 200px;
-        height: 200px;
+        height: 250px;
         background-position-x: center;
         background-size: 100% 100%;
         background-repeat: no-repeat;
@@ -66,13 +55,14 @@ body {
 
     &__word {
         display: flex;
-        min-width: 50%;
+        max-width: fit-content;
         justify-content: space-evenly;
     }
 
     &__letter {
         width: 1.5em;
         height: 1.5em;
+        flex-grow: unset;
         border-bottom: 2px solid black;
         text-align: center;
         margin: 5px
@@ -106,8 +96,12 @@ body {
     &__abc-letter:hover {
         cursor: url(https://www.cursor.cc/cursor3d/23715.png), auto
     }
-}
 
+    &__row {
+        height: 100%;
+        
+    }
+}
 
 /* The Modal (background) */
 .modal {

@@ -8,29 +8,40 @@
 
     <body onload="init()">
         <div class="container">
-            <h1 class="container__title">Hangman</h1>
-            <div class="container__game-container">
-            <div class="container__game">
-                <div class="container__hangman-img"></div>
-                <div class="container__word-container">
-                    <div class="container__word"></div>
-                    <div class="container__abc"></div>
-                </div>
+            <div class="row"> 
+                <h1 class="col-12 container__title">Hangman</h1>
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-3 container__hangman-img"></div>
+                        <div class="col-9">
+                            <div class="row align-items-end container__row ">
+                                <div class="col-12">
+                                    <div class="row justify-content-center"> 
+                                        <div class="col container__word"></div>
+                                    </div>
+                                    <div class="row container__abc"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
         <div id="modal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal__content">
-                <span class="modal__close">&times;</span>
-                <p class="modal__text"></p>
-                <a 
-                class="modal__pokemon-details"
-               > View pokemon details </button>
-            </div>
+        <!-- Modal content -->
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <p class="modal__text"></p>
+            <a 
+            class="modal__pokemon-details"
+            > View pokemon details </button>
+        </div>
           
         </div>
     </div>
     </body>
-    <script src="./scripts/script.js"></script>
+    <script src="script.js"></script>
 </html>

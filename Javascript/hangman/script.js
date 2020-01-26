@@ -28,7 +28,7 @@ function init() {
 
             for(let i = 0; i < selectedWord.length; ++i) {
                 node = document.createElement('div');
-                node.className = 'container__letter container--uppercase'
+                node.className = 'col container__letter container--uppercase'
                 node.id = 'container__letter' + i
                 word.appendChild(node)
             }
