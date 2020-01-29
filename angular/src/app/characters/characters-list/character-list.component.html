@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        {{ title }}
+
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                Filter by:
+            </div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]="listFilter"/> <!-- 2-way binding. Libreria para manejar forms [(ngModel)] mini clases para maner datos de un input específico.-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Filtered by: {{ listFilter }}</h4>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="characters && characters.length">
+            <thead>
+                <tr>
+                    <th>
+                        <button 
+                        class="btn btn-primary"
+                        (click)="toggleImage()"> <!-- With parentheses we do the event binding-->
+                            {{ showImage ? 'Hide' : 'Show' }} Image
+                        </button>
+                    </th>
+                    <th> Name </th>
+                    <th> Birth Year </th>
+                    <th> Gender </th>
+                    <th> Created </th>
+                    <th> Strength </th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let c of filteredCharacters"
+                [ngClass]="'currentRow'">
+                    <td>
+                        <img *ngIf="showImage" 
+                        [src]="c.imageUrl"
+                        [title]="c.name" 
+                        [style.width.px]="imageWidth"
+                        [style.margin.px]="imageMargin"
+                        />
+                    </td> <!-- Corchetes no hacen fatla porque se ponen [] y sabe que tiene que hacer binding-->
+                    <td>
+                        <a [routerLink]="['/characters', c.id]"> {{ c.name }}</a>
+                    </td>
+                    <td> {{ c.birth_year }}</td>
+                    <td> {{ c.gender | formatGender }} </td>
+                    <td> {{ c.created | date: 'dd MMM y' | uppercase  }} </td> <!-- Pipes. This is for date and support parameters -->
+                    <td> 
+                        <app-bar [bar]="c.strength"
+                        (barClicked)="onBarClicked($event)">
+                        </app-bar> 
+                    </td> <!-- {{ c.strength  | i18nPlural: strengthMapping }} --> 
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="!(characters && characters.length)">
+            There's no characters to show.
+        </div>
+        </div>
+    </div>
+</div>
