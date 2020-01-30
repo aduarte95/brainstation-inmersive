@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Aldous Huxley",
+        "books": 
+            [
+                {
+                    "id": 1,
+                    "name": "Brave World",
+                    "code": "908",
+                    "publishedYear": "2012-04-23T18:25:43.511Z"
+                }
+            ],
+        "bornDate": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 1,
+        "name": "Alds Huxley",
+        "books": 
+            [
+                {
+                    "id": 1,
+                    "name": "Brave World",
+                    "code": "908",
+                    "publishedYear": "2012-04-23T18:25:43.511Z"
+                }
+            ],
+        "bornDate": "2012-04-23T18:25:43.511Z"
+    }
+]
