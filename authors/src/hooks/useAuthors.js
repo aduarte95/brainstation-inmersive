@@ -6,14 +6,20 @@ export const useAuthors = () => {
   
     useEffect(() => {
       axios.get("https://pokeapi.co/api/v2/pokemon").then(response => {
-        console.log(response);
-        setAuthors(response.data.results);
+
+      setAuthors(response.data.results);
       });    
     }, []);
 
     const getAuthor = (id) => {
       return authors.filter(author => author.name === id );
     };
+
+    const getAuthorBooks = (id) => {
+      const author = authors.find(author => author.name === id );
+
+      return author.books;
+    }
 
     return {
       authors, 
