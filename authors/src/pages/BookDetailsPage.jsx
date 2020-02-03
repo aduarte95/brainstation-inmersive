@@ -6,12 +6,15 @@ import BookInfo from '../components/BookInfo/bookInfo';
 
 function BookDetailsPage({match}) {
   const { getAuthorBook } = useAuthors();
-  const book = getAuthorBook(match.params.id);
+  const book = getAuthorBook(match.params.authorId, match.params.bookId);
 
   return (
-    <Details detailed={book}>
-      <BookInfo book={book} />
-    </Details>  
+    <div>{ book &&
+      <Details detailed={book}>
+        <BookInfo book={book} />
+        <div></div>
+      </Details>
+    }</div>  
   );
 };
 

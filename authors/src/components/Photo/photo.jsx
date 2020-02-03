@@ -1,10 +1,10 @@
 import React from 'react';
 import './photo.scss'
 
-function Photo({src, alt}) {
+function Photo({photoType, src, alt}) {
 
     return (
-        <img className="photo" src={src} alt={alt}/>
+        <img className={photoType} src={src} alt={alt}/>
       );
 };
 

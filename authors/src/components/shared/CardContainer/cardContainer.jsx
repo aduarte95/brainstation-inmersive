@@ -9,8 +9,9 @@ function CardContainer() {
     return (
         <div className="container">
             <div className="d-flex flex-row flex-wrap justify-content-around">
-                {authors.map((pokemon, i) => {
-                    return <div key={`author-card-${i}`} className="container__card"><CardView entity={pokemon}></CardView></div>;
+                {authors.map((author, i) => {
+                    return <div key={`author-card-${i}`} className="container__card">
+                        <CardView author={author}></CardView></div>;
                 })}
             </div>
         </div>

@@ -3,15 +3,17 @@ import './bookInfo.scss';
 import Info from '../shared/Info/info'
 
 function BookInfo({book}) {
+    const { isbn, publicationYear, genres, topic } = book;
+
     return (
         <div className="container__info">
             <div className="row">
-                <Info info={"insert"}>Full name:</Info>
-                <Info info={"insert"}>Birth date:</Info>
+                <Info info={isbn.toUpperCase()}>ISBN:</Info>
+                <Info info={publicationYear}>Publication year:</Info>
             </div>
             <div className="row">
-                <Info info={"insert"}>Death date:</Info>
-                <Info info={"insert"}>Nationality:</Info>
+                <Info info={genres}>Genres</Info>
+                <Info info={topic}>Topic:</Info>
             </div>
         </div>
     );

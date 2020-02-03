@@ -5,24 +5,28 @@ export const useAuthors = () => {
     const [authors, setAuthors] = useState([]);
   
     useEffect(() => {
-      axios.get("https://pokeapi.co/api/v2/pokemon").then(response => {
-
-      setAuthors(response.data.results);
+      axios.get("http://localhost:8080/author").then(response => {
+      setAuthors(response.data);
       });    
     }, []);
 
     const getAuthor = (id) => {
-      return authors.filter(author => author.name === id );
+      return authors.find(author => author.id === Number(id) );
     };
 
-    const getAuthorBook = (id) => {
-      const author = authors.find(author => author.name === id );
+    const getAuthorBook = (authorId, bookId) => {
+      const author = authors.find(author => author.id === Number(authorId) );
 
-      return author.books;
+      if(author) {
+        return author.books.find(book => book.id === Number(bookId));
+      } else {
+        return author;
+      }
     }
 
-    return {
-      authors, 
-      getAuthor
-    };
+  return {
+    authors, 
+    getAuthor,
+    getAuthorBook,
+  }
   };
