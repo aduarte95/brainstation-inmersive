@@ -15,7 +15,7 @@ export const useAuthors = () => {
       return authors.filter(author => author.name === id );
     };
 
-    const getAuthorBooks = (id) => {
+    const getAuthorBook = (id) => {
       const author = authors.find(author => author.name === id );
 
       return author.books;

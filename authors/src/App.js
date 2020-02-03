@@ -2,7 +2,8 @@ import React from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import AuthorDetailsPage from './pages/AuthorDetailsPage'
+import AuthorDetailsPage from './pages/AuthorDetailsPage';
+import BookDetailsPage from './pages/BookDetailsPage';
 import Navbar from './components/shared/Navbar/navbar';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route path={`/author/book/:id`} render={props => <BookDetailsPage {...props}/>}  />
           <Route path={`/author/:id`} render={props => <AuthorDetailsPage {...props}/>}  />
           <Route path="/" component={HomePage} />
         </Switch>

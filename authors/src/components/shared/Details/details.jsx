@@ -20,7 +20,7 @@ function Details({detailed, children}) {
                     </div>
                   </div>
                   
-                  {children[1]}
+                  {children[1] && children[1]}
                 </div>
         })
       }
