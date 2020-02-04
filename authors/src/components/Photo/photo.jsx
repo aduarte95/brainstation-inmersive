@@ -4,7 +4,7 @@ import './photo.scss'
 function Photo({photoType, src, alt}) {
 
     return (
-        <img className={photoType} src={src} alt={alt}/>
+        <img className={photoType + " photo-style"} src={src} alt={alt}/>
       );
 };
 

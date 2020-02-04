@@ -12,7 +12,7 @@ function AuthorDetailsPage({match}) {
 
   return (
     <div>{ author &&
-      <Details detailed={author} photoType={"authorType"}>
+      <Details detailed={author} photoType={"author-type"}>
         <AuthorInfo author={author} />
         <BookCarousel authorId={match.params.id} books={author.books} />
         <Link to={`/author/${author.id}/add-book`} className="link link-special d-flex justify-content-center align-items-center">

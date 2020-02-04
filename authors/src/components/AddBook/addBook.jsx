@@ -97,7 +97,7 @@ function AddBook({match}) {
                     <button type="button" onClick={handleSubmit} className="btn btn-primary">Submit</button>
             </form>  
         }
-        { redirect && <Redirect to='/'/>}
+        { redirect && <Redirect to={`/author/${match.params.authorId}`}/>}
         </div>
     );
 };
