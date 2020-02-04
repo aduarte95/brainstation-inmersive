@@ -68,7 +68,7 @@ function AddBook({match}) {
 
     return (
         <div>{ author &&
-            <form className="container">
+            <form className="container form-style">
                     <Title> Add a new book for {author.name} </Title>
                     <div className="form-group">
                         <label htmlFor="formGroupTitle">Title</label>

@@ -7,8 +7,8 @@ function CardView({author}) {
     
     return (
         <div>
-            <Link to={`/author/${id}`}>
-                <div className="card">
+            <Link class="no-underline app-font-size" to={`/author/${id}`}>
+                <div className="card link">
                     <img className="card-img-top" src={imgUrl} alt={name}/>
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>

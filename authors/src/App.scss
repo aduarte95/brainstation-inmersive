@@ -1,5 +1,10 @@
 @import './styles/varibles';
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px
+}
+
 .App {
   text-align: center;
 }
@@ -45,4 +50,21 @@
 
 .text-align-center {
   text-align: center;
+}
+
+.link {
+  color: #ff5733;
+
+  &:hover{
+    text-decoration: none;
+    color: #007bff;
+  }
+}
+
+.no-underline:hover {
+  text-decoration: none;
+}
+
+.add-book-btn {
+  margin-bottom: 2%;
 }

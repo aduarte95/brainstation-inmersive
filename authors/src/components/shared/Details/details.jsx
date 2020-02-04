@@ -18,6 +18,7 @@ function Details({detailed, photoType, children}) {
       </div>
       
       {children[1] && children[1]}
+      {children.length === 3 && children[2]}
     </div>
   );
 };

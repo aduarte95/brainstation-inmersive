@@ -7,7 +7,7 @@ function BookCarousel({authorId, books}) {
     
     return (
         <div className="container carousel">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-center">
             {books.map( ({imgUrl, name, id}, i) => {
                 return <Link to={`/author/${authorId}/book/${id}`} key={`author-book-${i}`}>
                             <figure className="figure">
@@ -16,7 +16,6 @@ function BookCarousel({authorId, books}) {
                             </figure>
                         </Link>
                     })}
-                    <Link to={`/author/${authorId}/add-book`} className="container__add-book d-flex align-items-center"><div className="col">+ Add Book</div></Link>                    
             </div>
         </div>    
     );
