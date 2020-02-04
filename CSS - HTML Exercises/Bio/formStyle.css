@@ -1,0 +1,101 @@
+.form-input-group {
+    font-size: 0.85rem;
+    margin: 15px;
+}
+
+.form-input {
+    margin-top: 5px;
+    padding: 5px;
+    color:darkblue;
+}
+
+.form-input:hover {
+    border-style: solid;
+    border-color: rgba(29, 132, 163, 0.699);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAcjE7-g-Q_6k2uZrMn5Rvq9Zz4RNF5qGPc7qLsSxFK9W17vT4&s);
+}
+
+::placeholder {
+    color: rgb(84, 86, 99);
+    font-weight: 500;
+}
+
+.footer-info {
+    background-color: rgb(29, 132, 163);
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-text {
+    color: white;
+}
+
+.form-label {
+    color: rgb(29, 132, 163);
+    font-weight: 500;
+}
+
+.radio-button {
+    display: block;
+}
+
+.radio-button input[type="radio"]:checked::after {
+    background-image: url(snowflake.png);
+    width: 13px;
+    height: 13px;
+    top: -1px;
+    left: -2px;
+    position: relative;
+    background-color: white;
+    background-size: 100% 100%;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+  input[type="checkbox"]:checked::after {
+    background-image: url(snowflake.png);
+    width: 13px;
+    height: 13px;
+    top: -1px;
+    left: -2px;
+    position: relative;
+    background-color: white;
+    background-size: 100% 100%;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+
+.submit-button {
+    color: rgb(29, 132, 163);
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 10px;
+    border: 2.5px solid  rgb(29, 132, 163);
+    transition: all 0.4s ease 0s;
+}
+
+.submit-button:hover {
+    font-weight: bold;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAcjE7-g-Q_6k2uZrMn5Rvq9Zz4RNF5qGPc7qLsSxFK9W17vT4&s);
+    transition: all 0.4s ease 0s;
+}
+
+.submit-button-place {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.more-info {
+    width: 300px;
+}

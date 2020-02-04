@@ -1,0 +1,145 @@
+html {
+    background-image: url(https://image.freepik.com/free-photo/white-crumpled-paper-texture-background_1373-159.jpg);
+    background-size: cover;
+}
+
+body {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 24px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.container-game{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.title {
+    text-align: center;
+    margin-top: 0;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.hangman-img {
+    background-image: url(assets/1.svg);
+    width: 200px;
+    height: 200px;
+    background-position-x: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.word-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 50%;
+    align-items: center;
+}
+
+.word {
+    display: flex;
+    min-width: 50%;
+    justify-content: space-evenly;
+}
+
+.letter {
+    width: 1.5em;
+    height: 1.5em;
+    border-bottom: 2px solid black;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5px
+}
+
+.abc {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.abc-letter {
+    text-transform: uppercase;
+    font-family: 'Helvetica', cursive;
+    text-align: center;
+    font-size: 14px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 1.5px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.abc-letter:disabled {
+    background-color: #9b2f27;
+    color: white;
+    border: 2px inset #f44336;
+}
+
+.abc-letter:hover {
+    cursor: url(https://www.cursor.cc/cursor3d/23715.png), auto
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    font-family: 'Helvetica', cursive;
+    font-size: 16px;
+    text-align: center;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .selected-word {
+    text-transform: uppercase;
+  }
