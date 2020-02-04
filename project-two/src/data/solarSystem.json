@@ -1,0 +1,47 @@
+[
+    {
+        "name": "sun",
+        "description": "",
+        "imgUrl": "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/sun.png"
+    },
+    {
+        "name": "venus",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png"
+    },
+    {
+        "name": "mercury",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png"
+    },
+    {
+        "name": "earth",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
+    },
+    {
+        "name": "mars",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png"
+    },
+    {
+        "name": "jupiter",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png"
+    },
+    {
+        "name": "saturn",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png"
+    },
+    {
+        "name": "neptune",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png"
+    },
+    {
+        "name": "uranus",
+        "description": "",
+        "imgUrl": "https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png"
+    }
+]
