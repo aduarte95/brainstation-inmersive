@@ -71,7 +71,7 @@ public class BookRepository {
         return this.books;
     }
 
-    public boolean existsCode(String code) {
+    public boolean existsIsbn(String isbn) {
         ListIterator<BookDTO> listIterator = books.listIterator();
         BookDTO currentBook;
         boolean haveSameCode = false;
@@ -79,7 +79,7 @@ public class BookRepository {
         while (!haveSameCode && listIterator.hasNext()) {
             currentBook = listIterator.next();
 
-            if (currentBook.getCode().equals(code)) {
+            if (currentBook.getIsbn().equals(isbn)) {
                 haveSameCode = true;
             }
         }

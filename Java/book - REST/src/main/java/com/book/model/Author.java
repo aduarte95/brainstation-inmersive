@@ -10,17 +10,25 @@ public class Author {
     private int id;
     private ArrayList<Book> books;
     private String name;
-    private String bornDate;
+    private String birthDate;
+    private String fullName;
+    private String deathDate;
+    private String nationality;
+    private String imgUrl;
 
     public Author() {
 
     }
 
-    public Author(int id, String name, ArrayList<Book> books, String bornDate) {
+    public Author(int id, String name, ArrayList<Book> books, String birthDate, String fullName, String deathDate, String nationality, String imgUrl) {
         this.id = id;
         this.name = name;
         this.books = books;
-        this.bornDate = bornDate;
+        this.birthDate = birthDate;
+        this.fullName = fullName;
+        this.deathDate = deathDate;
+        this.nationality = nationality;
+        this.imgUrl = imgUrl;
     }
 
     public void setId(int id) {
@@ -47,11 +55,43 @@ public class Author {
         this.books = books;
     }
 
-    public void setBornDate(String bornDate) {
-        this.bornDate = bornDate;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getBornDate() {
-        return  bornDate;
+    public String getBirthDate() {
+        return  birthDate;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setDeathDate(String deathDate) {
+        this.deathDate = deathDate;
+    }
+
+    public String getDeathDate() {
+        return deathDate;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 }

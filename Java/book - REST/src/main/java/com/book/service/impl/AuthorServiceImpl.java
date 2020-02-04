@@ -25,10 +25,13 @@ public class AuthorServiceImpl implements AuthorService {
         ArrayList<Book> books = dto.getBooks();
         String name = dto.getName();
         int dtoId = dto.getId();
+        String birthDate = dto.getBirthDate();
+        String deathDate = dto.getDeathDate();
+        String nationality = dto.getNationality();
+        String fullName = dto.getFullName();
+        String imgUrl = dto.getImgUrl();
 
-        String date = dto.getBornDate();
-
-        return new Author(dtoId, name, books, date);
+        return new Author(dtoId, name, books, birthDate, fullName, deathDate, nationality, imgUrl);
     }
 
     public Author createAuthor(Author author) {
@@ -94,9 +97,13 @@ public class AuthorServiceImpl implements AuthorService {
     private AuthorDTO setDTO(Author author) {
         AuthorDTO dto = new AuthorDTO();
         dto.setBooks(author.getBooks());
-        dto.setBornDate(author.getBornDate());
+        dto.setBirthDate(author.getBirthDate());
         dto.setName(author.getName());
         dto.setId(author.getId());
+        dto.setNationality(author.getNationality());
+        dto.setFullName(author.getFullName());
+        dto.setDeathDate(author.getDeathDate());
+        dto.setImgUrl(author.getImgUrl());
 
         return dto;
     }
@@ -104,9 +111,13 @@ public class AuthorServiceImpl implements AuthorService {
     private Author setModel(AuthorDTO dto) {
         Author author = new Author();
         author.setBooks(dto.getBooks());
-        author.setBornDate(dto.getBornDate());
+        author.setBirthDate(dto.getBirthDate());
         author.setName(dto.getName());
         author.setId(dto.getId());
+        author.setNationality(dto.getNationality());
+        author.setFullName(dto.getFullName());
+        author.setDeathDate(dto.getDeathDate());
+        author.setImgUrl(dto.getImgUrl());
 
         return author;
     }

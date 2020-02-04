@@ -27,9 +27,9 @@ public class BookServiceServiceTests {
     public void init() {
         book = new Book();
         book.setId(1);
-        book.setCode("1");
+        book.setIsbn("1");
         book.setName("Brave World");
-        book.setPublishedYear(1954);
+        book.setPublicationYear(1954);
     }
 
     @Test

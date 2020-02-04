@@ -9,8 +9,11 @@ public class BookDTO {
     private int id;
 
     private String name;
-    private String code;
-    private int publishedYear;
+    private String isbn;
+    private int publicationYear;
+    private String genres;
+    private String topic;
+    private String imgUrl;
 
     public void setId(int id) {
         this.id = id;
@@ -28,20 +31,44 @@ public class BookDTO {
         return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getCode() {
-        return code;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setPublishedYear(int publishedYear) {
-        this.publishedYear = publishedYear;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
-    public int getPublishedYear() {
-        return publishedYear;
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setGenres(String genres) {
+        this.genres = genres;
+    }
+
+    public String getGenres() {
+        return genres;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     @Override

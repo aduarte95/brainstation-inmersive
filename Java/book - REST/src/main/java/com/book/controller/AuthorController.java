@@ -6,14 +6,15 @@ import com.book.model.User;
 import com.book.service.AuthorService;
 import com.book.service.UserService;
 import com.book.utils.TokenUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class AuthorController {
     private AuthorService authorService;
 
@@ -22,48 +23,48 @@ public class AuthorController {
     }
 
     @GetMapping(value = "/author")
-    public ResponseEntity getAuthor(@RequestHeader String token) {
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity getAuthor(/*@RequestHeader String token*/) {
+      //  if(TokenUtils.verifyToken(token)) {
             return new ResponseEntity(this.authorService.getAll(), HttpStatus.OK);
-        } else {
+      /*  } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
 
     @GetMapping(value = "/author/{authorId}")
-    public ResponseEntity getAuthor(@PathVariable String authorId, @RequestHeader String token, @RequestBody User user) {
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity getAuthor(@PathVariable String authorId /*,@RequestHeader String token, @RequestBody User user*/) {
+        // if(TokenUtils.verifyToken(token)) {
             return new ResponseEntity(this.authorService.getAuthor(Integer.parseInt(authorId)), HttpStatus.OK);
-        } else {
+        /*} else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
     @PostMapping(value="/author")
-    public ResponseEntity createAuthor(@RequestBody Author author, @RequestHeader String token){
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity createAuthor(@RequestBody Author author/*, @RequestHeader String token*/){
+        // if(TokenUtils.verifyToken(token)) {
             Author authorEntity = this.authorService.createAuthor(author);
             return verifyResponse(authorEntity);
-        } else {
+        /*} else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
     @PutMapping(value = "/author/{authorId}")
-    public ResponseEntity updateAuthor(@PathVariable String authorId, @RequestHeader String token, @RequestBody Author author) {
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity updateAuthor(@PathVariable String authorId /*,@RequestHeader String token*/, @RequestBody Author author) {
+        // if(TokenUtils.verifyToken(token)) {
             Author authorEntity = this.authorService.updateAuthor(Integer.parseInt(authorId), author);
 
             return verifyResponse(authorEntity);
-        } else {
+        /*} else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
     @DeleteMapping(value = "author/{authorId}")
-    public ResponseEntity deleteAuthor(@PathVariable String authorId, @RequestHeader String token) {
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity deleteAuthor(@PathVariable String authorId/*, @RequestHeader String token*/) {
+        // if(TokenUtils.verifyToken(token)) {
             String authorEntity = this.authorService.deleteAuthor(Integer.parseInt(authorId));
 
             if(authorEntity == null){
@@ -71,19 +72,19 @@ public class AuthorController {
             } else {
                 return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
             }
-        } else {
+        /*} else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
     @PostMapping(value="/author/{authorId}")
-    public ResponseEntity addBook(@PathVariable String authorId, @RequestHeader String token, @RequestBody Book book) {
-        if(TokenUtils.verifyToken(token)) {
+    public ResponseEntity addBook(@PathVariable String authorId, /*@RequestHeader String token,*/ @RequestBody Book book) {
+        // if(TokenUtils.verifyToken(token)) {
             Author authorEntity = this.authorService.addBook(Integer.parseInt(authorId), book);
             return verifyResponse(authorEntity);
-        } else {
+        /*} else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
-        }
+        }*/
     }
 
     private ResponseEntity verifyResponse(Author authorEntity) {

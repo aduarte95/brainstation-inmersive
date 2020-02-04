@@ -1,7 +1,6 @@
 package com.book.service.impl;
 
 import com.book.dto.BookDTO;
-import com.book.model.Author;
 import com.book.model.Book;
 import com.book.repository.BookRepository;
 import com.book.service.BookService;
@@ -50,7 +49,7 @@ public class BookServiceImpl implements BookService {
         boolean canCreate = false;
         if (book != null) {
 
-            boolean existSameCode = existsCode(book.getCode());
+            boolean existSameCode = existsCode(book.getIsbn());
             boolean hasEmptyFields = validateBook(book);
             boolean haveSameNameAuthor = searchRecurrences(book);
 
@@ -62,7 +61,7 @@ public class BookServiceImpl implements BookService {
     }
 
     private boolean existsCode(String code) {
-        return this.bookRepository.existsCode(code);
+        return this.bookRepository.existsIsbn(code);
     }
 
     private boolean validateBook(Book book) {
@@ -77,20 +76,26 @@ public class BookServiceImpl implements BookService {
 
     private BookDTO setDTO(Book book) {
         BookDTO bookDTO = new BookDTO();
-        bookDTO.setCode(book.getCode());
+        bookDTO.setIsbn(book.getIsbn());
         bookDTO.setName(book.getName());
-        bookDTO.setPublishedYear(book.getPublishedYear());
+        bookDTO.setPublicationYear(book.getPublicationYear());
         bookDTO.setId(book.getId());
+        bookDTO.setGenres(book.getGenres());
+        bookDTO.setTopic(book.getTopic());
+        bookDTO.setImgUrl(book.getImgUrl());
 
         return bookDTO;
     }
 
     private Book setModel(BookDTO bookDTO) {
         Book book = new Book();
-        book.setCode(bookDTO.getCode());
+        book.setIsbn(bookDTO.getIsbn());
         book.setName(bookDTO.getName());
-        book.setPublishedYear(bookDTO.getPublishedYear());
+        book.setPublicationYear(bookDTO.getPublicationYear());
         book.setId(bookDTO.getId());
+        book.setGenres(bookDTO.getGenres());
+        book.setTopic(bookDTO.getTopic());
+        book.setImgUrl(bookDTO.getImgUrl());
 
         return book;
     }

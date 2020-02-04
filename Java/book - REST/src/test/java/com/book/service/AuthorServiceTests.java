@@ -32,19 +32,19 @@ public class AuthorServiceTests {
     @BeforeEach
     public void init(){
         authorDTO = new AuthorDTO();
-        authorDTO.setBornDate("1910");
+        authorDTO.setBirthDate("1910");
         authorDTO.setId(1);
         authorDTO.setName("Huxley");
 
         author = new Author();
-        author.setBornDate("1910");
+        author.setBirthDate("1910");
         author.setId(1);
         author.setName("Huxley");
 
         book = new Book();
-        book.setCode("1");
+        book.setIsbn("1");
         book.setName("Brave World");
-        book.setPublishedYear(1954);
+        book.setPublicationYear(1954);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class AuthorServiceTests {
 
         Assert.assertEquals(author.getName(), authorDTO.getName());
         Assert.assertEquals(author.getBooks(), authorDTO.getBooks());
-        Assert.assertEquals(author.getBornDate(), authorDTO.getBornDate());
+        Assert.assertEquals(author.getBirthDate(), authorDTO.getBirthDate());
         Assert.assertEquals(author.getId(), authorDTO.getId());
     }
 
@@ -150,7 +150,7 @@ public class AuthorServiceTests {
         Assert.assertEquals(list.get(0).getName(), dtoArrayList.get(0).getName());
         Assert.assertEquals(list.get(0).getId(), dtoArrayList.get(0).getId());
         Assert.assertEquals(list.get(0).getBooks(), dtoArrayList.get(0).getBooks());
-        Assert.assertEquals(list.get(0).getBornDate(), dtoArrayList.get(0).getBornDate());
+        Assert.assertEquals(list.get(0).getBirthDate(), dtoArrayList.get(0).getBirthDate());
     }
 
     @Test
@@ -194,9 +194,9 @@ public class AuthorServiceTests {
 
         try {
             Book dto = new Book();
-            dto.setCode("1");
+            dto.setIsbn("1");
             dto.setName("Brave World");
-            dto.setPublishedYear(1954);
+            dto.setPublicationYear(1954);
             ArrayList<Book> books = new ArrayList<Book>();
             books.add(dto);
             authorDTO.setBooks(books);

@@ -9,16 +9,22 @@ public class Book {
     private int id;
 
     private String name;
-    private String code;
-    private int publishedYear;
+    private String isbn;
+    private int publicationYear;
+    private String genres;
+    private String topic;
+    private String imgUrl;
 
     public Book(){}
 
-    public Book(int id, String name, String code, int publishedYear) {
+    public Book(int id, String name, String isbn, int publicationYear, String genres, String topic, String imgUrl) {
         this.id = id;
         this.name = name;
-        this.code = code;
-        this.publishedYear = publishedYear;
+        this.isbn = isbn;
+        this.publicationYear = publicationYear;
+        this.genres = genres;
+        this.topic = topic;
+        this.imgUrl = imgUrl;
     }
 
     public void setId(int id) {
@@ -37,20 +43,44 @@ public class Book {
         return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getCode() {
-        return code;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setPublishedYear(int publishedYear) {
-        this.publishedYear = publishedYear;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
-    public int getPublishedYear() {
-        return publishedYear;
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setGenres(String genres) {
+        this.genres = genres;
+    }
+
+    public String getGenres() {
+        return genres;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     @Override
