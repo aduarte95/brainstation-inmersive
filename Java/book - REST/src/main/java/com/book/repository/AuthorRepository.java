@@ -28,12 +28,21 @@ public class AuthorRepository {
         this.dtos.add(new AuthorDTO(2, "George Orwell", books, "1980", "Eric Arthur Blair", "1990", "Indian", "https://upload.wikimedia.org/wikipedia/commons/c/cc/George_Orwell%2C_c._1940.jpg"));
 
         books = new ArrayList<>();
-        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://i.pinimg.com/236x/ae/f4/e2/aef4e2296f78750e5daab650d47eec48--brave-new-world-huxley-brave-new-world-book.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
+        books.add(new Book(id++, "100 años de soledad", "cd1236", 1982, "Novel", "Dystopian", "https://images-na.ssl-images-amazon.com/images/I/A1ULI3MovqL.jpg"));
         this.dtos.add(new AuthorDTO(3, "Gabriel García Marquez", books, "1980", "Gabriel José de la Concordia García Márquez", "1990", "Colombian", "https://www.biografiasyvidas.com/biografia/g/fotos/garcia_marquez_gabriel.jpg"));
 
         books = new ArrayList<>();
         this.dtos.add(new AuthorDTO(4, "William Golding", books, "1980", "William Gerald Golding", "1990", "British", "https://upload.wikimedia.org/wikipedia/commons/f/f9/William_Golding_1983.jpg"));
-        this.dtos.add(new AuthorDTO(4, "Louisa May Alcott", books, "1980", "Louisa May Alcott", "1990", "American", "https://upload.wikimedia.org/wikipedia/commons/4/4f/Louisa_May_Alcott_headshot.jpg"));
+        this.dtos.add(new AuthorDTO(5, "Louisa May Alcott", books, "1980", "Louisa May Alcott", "1990", "American", "https://upload.wikimedia.org/wikipedia/commons/4/4f/Louisa_May_Alcott_headshot.jpg"));
 
     }
 
