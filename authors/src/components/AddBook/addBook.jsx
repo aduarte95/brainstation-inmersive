@@ -72,19 +72,19 @@ function AddBook({match}) {
                     <Title> Add a new book for {author.name} </Title>
                     <div className="form-group">
                         <label htmlFor="formGroupTitle">Title</label>
-                        <input type="text" onChange={handleChange} className="form-control" id="formGroupTitle" placeholder="Title"/>
+                        <input type="text" onChange={handleChange} className="form-control" id="formGroupTitle" placeholder="Title" required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupIsbn">ISBN</label>
-                        <input type="text" onChange={handleChange} className="form-control" id="formGroupIsbn" placeholder="ISBN"/>
+                        <input type="text" onChange={handleChange} className="form-control" id="formGroupIsbn" placeholder="ISBN" required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupPublicationYear">Publication year</label>
-                        <input type="text" onChange={handleChange} className="form-control" id="formGroupPublicationYear" placeholder="Publication year"/>
+                        <input type="number" onChange={handleChange} className="form-control" id="formGroupPublicationYear" placeholder="Publication year" required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupGenre">Genre</label>
-                        <input type="text" onChange={handleChange} className="form-control" id="formGroupGenre" placeholder="Genre"/>
+                        <input type="text" onChange={handleChange} className="form-control" id="formGroupGenre" placeholder="Genre" required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupTopic">Topic</label>
