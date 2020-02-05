@@ -21,7 +21,7 @@ function Navbar() {
       </li>
       
       <li className="nav-item">
-        <Link to="/" className="nav-link"> Gallery </Link>
+        <Link to="/gallery" className="nav-link"> Gallery </Link>
       </li>
 
       <li className="nav-item">
