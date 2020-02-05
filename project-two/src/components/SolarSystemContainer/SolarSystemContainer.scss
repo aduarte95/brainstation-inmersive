@@ -1,35 +1,46 @@
+body {
+    background-color: black;
+}
+
+.img-size {
+    width: 100%;
+}
+
+
 .sun {
-    width: 50%;
+    width: 70%;
     margin-left: -40%;
 }
 
 .venus {
-    width: 10%;
+    width: 10.86%;
 }
 
 .uranus {
-    width: 50%;
-    margin-left: -40%;
+    width: 13.64%;
 }
 
 .saturn {
-    width: 10%;
+    width: 18.37%;
 }
 
 .neptune {
-    width: 50%;
-    margin-left: -40%;
+    width: 13.53%;
+    margin: 2%;
 }
 
 .mars {
-    width: 10%;
+    width: 10.48%;
 }
 
 .earth {
-    width: 50%;
-    margin-left: -40%;
+    width: 10.91%;
 }
 
 .jupiter {
-    width: 10%;
+    width: 20%;
+}
+
+.mercury {
+    width: 10.35%;
 }
