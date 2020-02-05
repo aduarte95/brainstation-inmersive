@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "label": "sun",
+        "answers": [
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet"
+            ]
+    },
+    {
+        "id": 2,
+        "label": "holi",
+        "answers": [
+            "Lorem ipsum dolor sit amet"
+        ]
+    }
+]
