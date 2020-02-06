@@ -1,15 +1,33 @@
 body {
-    background-color: black;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(https://thumbs.dreamstime.com/t/christmas-blinking-glitter-sparkle-stars-falling-top-winter-holiday-xmas-star-seamless-loop-black-background-83375708.jpg);
 }
 
 .img-size {
     width: 100%;
 }
 
+.planet {
+    transition: 0.5s;
+    
+    &:hover {
+        transform: scale(1.2,1.2);
+        transition: 0.5s;
+    }
+}
 
 .sun {
     width: 70%;
     margin-left: -35%;
+    margin-top: -5%;
+}
+
+.member-sun {
+    transition: 0.5s;
+    
+    &:hover {
+        transform: scale(1.1,1.1);
+        transition: 0.5s;
+    }
 }
 
 .venus {
@@ -45,11 +63,3 @@ body {
     width: 10.35%;
 }
 
-.planet {
-    transition: 0.5s;
-}
-
-.planet:hover {
-    transform: scale(1.2,1.2);
-    transition: 0.5s;
-}
