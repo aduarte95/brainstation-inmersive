@@ -3,6 +3,9 @@ import './Navbar.scss';
 import {Link} from 'react-router-dom';
 
 function Navbar() {
+  function handleSubmit(e) {
+    console.log(e);
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark primary-background">
       <Link to="/" className="navbar-brand">
@@ -25,7 +28,7 @@ function Navbar() {
       </li>
 
       <li className="nav-item">
-        <Link to="/" className="nav-link"> Cool Sites </Link>
+        <Link to="/cool-sites" className="nav-link"> Cool Sites </Link>
       </li>
 
       <li className="nav-item">
