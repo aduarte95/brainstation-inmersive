@@ -4,10 +4,29 @@ import ssQuizData from '../../data/ssQuiz.json'
 
 function QuizForm() {
   const [ssQuiz, setSsQuiz] = useState([]);
-  let cont = 0;
+  const [numQuestion, setNumQuestions] = useState(0);
+  const [selectedAnwers, setSelectedAnswers] = useState([]);
+  const [showScore, setShowScore] = useState(0);
+
+  function getScore(e) {
+    e.preventDefault();
+    console.log(selectedAnwers)
+    
+  }
+
+  function setAnswers(e) {
+    e.persist();
+    const key = e.target.name;
+    
+    setSelectedAnswers( oldArray => [{[key]: e.target.id, ...oldArray[0]}])
+    
+  }
+  
   useEffect(() => {
     setSsQuiz(ssQuizData);  
   }, []);
+
+  
 
   return (
     <div className="container">
@@ -16,15 +35,15 @@ function QuizForm() {
             https://spaceplace.nasa.gov/review/planets/planets-13.sp.png" alt="Friendly Jupiter"></img>
         <form className="quiz-container quiz-container--margin-bottom glowing-box">
           { ssQuiz.map( (question, i) => {
-            return    <div className="form-check quiz-container--margin-bottom">
+            return    <div key={`question-${i}`} className="form-check quiz-container--margin-bottom">
                         <label className="quiz-container__label quiz-container--margin-bottom"> {question.label} </label>
                         { 
-                          question.answers.map( (a, i) => {   
+                          question.answers.map( (a,j) => {   
 
-                            return  <div className="quiz-container--margin-bottom-1"> 
+                            return  <div key={`answer-${j}`} className="quiz-container--margin-bottom-1"> 
                                       <div className="custom-control custom-radio">
-                                          <input type="radio" id={`customRadio-${a.id}`}name="customRadio" class="custom-control-input"/>
-                                          <label class="custom-control-label" for={`customRadio-${a.id}`}>{a.answer}</label>
+                                          <input type="radio" onChange={(e) => setAnswers(e)} id={`customRadio-${a.id}`} name={`customRadio-${i}`} className="custom-control-input"/>
+                                          <label className="custom-control-label" htmlFor={`customRadio-${a.id}`}>{a.answer}</label>
                                         </div>
                                     </div>
                           })
@@ -34,7 +53,7 @@ function QuizForm() {
           })
           }
           <div className="d-flex justify-content-center quiz-container__submit-btn">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary" onClick={(e) => getScore(e)}>Submit</button>
           </div>
         </form> 
       </div>
