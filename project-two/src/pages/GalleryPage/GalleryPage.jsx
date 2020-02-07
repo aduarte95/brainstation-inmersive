@@ -19,7 +19,7 @@ function GalleryPage() {
         axios.get(`https://api.nasa.gov/planetary/apod?date=${new Date(loop.getTime() - (start.getTimezoneOffset() * 60000 )).toISOString().split("T")[0]}&api_key=CukV5eprkpPGgtJmS5HYDHXPvyZXExupk716UlB0`)
         .then(  response => {
           if(response.data.media_type !== 'video') {
-            setNasaPhotos(oldArray => [...oldArray, {src: response.data.url, ...random[index]}]);   
+            setNasaPhotos(oldArray => [...oldArray, {src: response.data.url, ...random[1]}]);   
           }         
         });    
 
