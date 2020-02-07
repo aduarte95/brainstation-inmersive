@@ -7,10 +7,7 @@ function TestMe() {
       
   return (  
       <div className="test-me-container">
-        <Title> Let's prove your knowledge. You got this!
-            <span>
-                <img className="test-me-container__img" alt="friendly planet" src="https://spaceplace.nasa.gov/review/planets/planets-13.en.png" />
-            </span>
+        <Title> Let's see <div>how much you learn!</div>
         </Title> 
         <QuizForm />
       </div>

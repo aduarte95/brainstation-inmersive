@@ -10,15 +10,15 @@ function QuizForm() {
   }, []);
 
   return (
-    <form>
+    <form className="container quiz-container quiz-container--margin-bottom glowing-box">
       { ssQuiz.map( (question, i) => {
-        return    <div class="form-check">
-                    <label> {question.label} </label>
+        return    <div className="form-check">
+                    <label className="quiz-container__label quiz-container--margin-bottom"> {question.label} </label>
                     { 
                       question.answers.map( (answer, i) => {
-                        return <div>
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked/>
-                                  <label class="form-check-label" for="exampleRadios1">
+                        return <div className="custom-control custom-radio quiz-container--margin-bottom">
+                                  <input className="custom-control-input" type="radio" name="exampleRadios" id="customRadio" value="option1" checked/>
+                                  <label className="custom-control-label" for="customRadio">
                                     {answer}
                                   </label>
                                 </div>
@@ -27,7 +27,9 @@ function QuizForm() {
                   </div>
       })
       }
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div className="d-flex justify-content-center quiz-container__submit-btn">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form> 
   );
 }
