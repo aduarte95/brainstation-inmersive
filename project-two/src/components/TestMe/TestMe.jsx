@@ -7,8 +7,7 @@ function TestMe() {
       
   return (  
       <div className="test-me-container">
-        <Title> Let's see <div>how much you learn!</div>
-        </Title> 
+        <Title> Let's see <div>how much you learn!</div></Title>
         <QuizForm />
       </div>
   );

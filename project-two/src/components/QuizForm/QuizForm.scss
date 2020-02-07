@@ -9,6 +9,15 @@
         margin-bottom: 2rem;
     }
 
+    &--margin-bottom-1 {
+        margin-bottom: 1rem;
+    }
+
+    &__decorator-img {
+        position: absolute;
+        margin-left: -210px;
+    }
+
     &__label {
         font-size: 2rem;
         color: blueviolet;
