@@ -1,5 +1,32 @@
-.float {
-    position:fixed;
-	bottom:25px;
-	right:25px;
+.home-container {
+	&__title-img{
+        width: 80px;
+	}
+	
+	&__float-btn {
+		position:fixed;
+		bottom:25px;
+		right:25px;
+		color: white;
+		background-color: #00709494;
+		border: 2px solid #dadada;
+		border-radius: 7px;
+		outline: none;
+		border-color: #9ecaed;
+		box-shadow: 0 0 10px #9ecaed;
+
+		&:hover {
+			color: white;
+			background-color: #006f94;
+		}
+	}
+
+	&__info-chart-appear {
+		opacity: 0.01;
+	}
+  
+	&__info-chart-appear.home-container__info-chart-appear-active {
+		opacity: 1;
+		transition: opacity 1s ease-in;
+	}
 }

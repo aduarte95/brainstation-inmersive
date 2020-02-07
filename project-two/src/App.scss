@@ -4,48 +4,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  pointer-events: none;
-}
-
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-
-
-@keyframes App-logo-shrink {
-  0% {
-      -webkit-transform: scale(1);
-  }
-  25% {
-    -webkit-transform: scale(1.2);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-  100% {
-      -webkit-transform: scale(1.2);
-  }
-}
-
 .transparent-background {
   background-color: transparent;
 }
