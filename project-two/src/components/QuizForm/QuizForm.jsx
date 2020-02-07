@@ -17,8 +17,11 @@ function QuizForm() {
   function setAnswers(e) {
     e.persist();
     const key = e.target.name;
+    var question = key.split("-");
+    const id = e.target.id;
+    var answer = id.split("-");
     
-    setSelectedAnswers( oldArray => [{[key]: e.target.id, ...oldArray[0]}])
+    setSelectedAnswers( oldArray => [{[question[1]]: answer[1], ...oldArray[0]}])
     
   }
   
