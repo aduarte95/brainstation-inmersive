@@ -4,12 +4,48 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.glowing-box {
+.glowing {
+  &-box {
     border: 2px solid #dadada;
     border-radius: 7px;
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
+  }
+  
+  &-button {
+		color: white;
+    background-color: #3144a282;
+    
+    &:hover {
+			color: white;
+			background-color: #3144a2;
+    }
+  }
+}
+
+.primary-button {
+		color: white;
+    background-color: #3144a2e7;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    
+    &:hover {
+			color: white;
+			border: 2px solid #dadada;
+      border-radius: 7px;
+      outline: none;
+      border-color: #9ecaed;
+      box-shadow: 0 0 10px #9ecaed;
+    }
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-1 {
+  margin-bottom: 1rem;
 }
 
 .transparent-background {

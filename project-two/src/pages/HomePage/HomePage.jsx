@@ -26,7 +26,7 @@ function HomePage({match}) {
           </InfoChart>
       </CSSTransitionGroup>
       <SolarSystemContainer />
-      <Link className="test-me-button btn home-container__float-btn glowing-box" to="test-me"> Test me up! </Link>
+      <Link className="test-me-button btn home-container__float-btn glowing-box glowing-button" to="test-me"> Test me up! </Link>
     </div> 
   );
 }
