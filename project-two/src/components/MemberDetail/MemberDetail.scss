@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables';
+
 .member-container{
     margin-top: 2%;
 
@@ -9,16 +11,12 @@
     &__info {
         width: 20%;
         position: absolute;
-        top: 35%;
+        top: 27.5%;
         left: 10%;
     }
 
     &__clickable-star {
-        width: 100%;
-        margin-top: -20%;
-        left: 10%;
         font-weight: bold;
-        color: rebeccapurple;
     }
 
     &__img-star {
@@ -32,5 +30,6 @@
     &__text {
         margin: 0;
         font-size: 2rem;
+        color: $font-contrast;
     }
 }

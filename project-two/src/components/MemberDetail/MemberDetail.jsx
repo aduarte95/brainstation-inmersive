@@ -33,11 +33,12 @@ function MemberDetail({match}) {
                                 <div className="member-container__info">
                                     <InfoChart className="member-container__info-chart">
                                         Click the star and start to learn about <span className="capitalize">{member.name}</span>
+                                        <div className="d-flex align-items-center member-container__clickable-star">
+                                            <img onClick={() => showFact(totalFacts, cont, setCont) } className="member-container__img-star" src="https://media1.giphy.com/media/d7CQt3sSdbwdtNE5ET/giphy.gif" alt="star"/>
+                                            <p className="member-container__text">{cont+1} / {totalFacts}</p>
+                                        </div>
                                     </InfoChart>
-                                    <div className="d-flex align-items-center member-container__clickable-star">
-                                        <img onClick={() => showFact(totalFacts, cont, setCont) } className="member-container__img-star" src="https://media1.giphy.com/media/d7CQt3sSdbwdtNE5ET/giphy.gif" alt="star"/>
-                                        <p className="member-container__text">{cont+1}/{totalFacts}</p>
-                                    </div>
+                                    
                                 </div>
                         </CSSTransitionGroup>
                         <TopImage member={member}/>

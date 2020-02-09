@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables';
+
 .quiz-container {
     text-transform: capitalize;
     color: white;
@@ -12,7 +14,7 @@
 
     &__label {
         font-size: 2rem;
-        color: blueviolet;
+        color: $font-contrast;
     }
 }
 
