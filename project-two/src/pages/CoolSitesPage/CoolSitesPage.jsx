@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Title from '../../components/shared/Title/Title';
 import coolSitesData from '../../data/coolSites.json'
 import './CoolSitesPage.scss';
-import {Card} from 'react-bootstrap'
+import {Card, OverlayTrigger, Tooltip} from 'react-bootstrap'
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -64,15 +64,24 @@ function CoolSitesPage() {
             sliderClass=""
             slidesToSlide={1}
             swipeable
+            className="cool-sites-container__carousel"
             >
                 
                 {   coolSites &&
                 coolSites.map( (site, i) => {
-                    return <Card border="primary" key={`carousel-item-${i}`} style={{ width: '18rem' }}>
+                    return <Card className="cool-sites-container__card glowing-box" key={`carousel-item-${i}`} style={{ width: '18rem' }}>
                                 <Card.Img className="cool-sites-container__img" variant="top" src={site.imgUrl} />
                                 <Card.Body>
                                     <Card.Title>{site.name}</Card.Title>
-                                    <Card.Text>{site.description}</Card.Text>
+                                    <OverlayTrigger
+                                        overlay={
+                                            <Tooltip>
+                                                {site.description}
+                                            </Tooltip>
+                                        }
+                                        >
+                                        <Card.Text  className="cool-sites-container__text">{site.description}</Card.Text>
+                                    </OverlayTrigger>
                                     <a 
                                     target="_blank"
                                     rel="noopener noreferrer" 
