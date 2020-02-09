@@ -17,8 +17,7 @@ function HomePage({match}) {
 
       <InfoChart className="home-container__info-chart">
         Hey! Pick any member of the solar system and learn something cool about it!
-      </InfoChart>}
-
+      </InfoChart>
       <SolarSystemContainer />
 
       <Link className="test-me-button btn home-container__float-btn glowing-box glowing-button" to="test-me"> Test me up! </Link>

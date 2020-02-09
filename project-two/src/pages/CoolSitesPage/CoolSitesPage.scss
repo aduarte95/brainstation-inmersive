@@ -1,4 +1,8 @@
+@import '../../assets/styles/variables';
+
 .cool-sites-container {
+    min-height: $min-height;
+
     &__card {
         background: transparent;
         height: 100%;
@@ -6,7 +10,6 @@
     }
 
     &__carousel {
-
     }
 
     &__img {
