@@ -16,7 +16,7 @@ function CoolSitesPage() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="cool-sites-container container">
         <Title>Here are some sites you will love! <i className="fas fa-heart"></i> </Title>
         <Carousel
             additionalTransfrom={0}
@@ -69,7 +69,7 @@ function CoolSitesPage() {
                 {   coolSites &&
                 coolSites.map( (site, i) => {
                     return <Card border="primary" key={`carousel-item-${i}`} style={{ width: '18rem' }}>
-                                <Card.Img className="img-" variant="top" src={site.imgUrl} />
+                                <Card.Img className="cool-sites-container__img" variant="top" src={site.imgUrl} />
                                 <Card.Body>
                                     <Card.Title>{site.name}</Card.Title>
                                     <Card.Text>{site.description}</Card.Text>

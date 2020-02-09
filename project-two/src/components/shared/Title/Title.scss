@@ -1,10 +1,12 @@
+@import '../../../assets/styles/variables';
+
 .title {
     /*background: -webkit-linear-gradient(#00f4ff 20%, #ff00c2 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;*/
       color: white;
       text-align: center;
-      margin: 1rem 0;
+      margin: $title-top-margin 0;
       text-transform: capitalize;
       font-weight: bolder;
       text-shadow: 0 0 1px #fff, 0 0 0px #8a00e6, 0px 0px 6px #002ae6, 0 0 20px #8a00e6;

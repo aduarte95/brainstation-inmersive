@@ -4,6 +4,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.app-container {
+  /* 140px stands for = footer height: 43px + footer margin-top: 25px + navbar-height:56px + title top margin: 16px */
+  min-height: calc(100vh - #{$footer-calc});
+}
+
 .glowing {
   &-box {
     border: 2px solid #dadada;
@@ -41,6 +46,10 @@ body {
 }
 .capitalize {
   text-transform: capitalize;
+}
+
+.margin-top {
+  margin-top: 2rem;
 }
 
 .margin-bottom {
