@@ -71,8 +71,8 @@ function CoolSitesPage() {
                     coolSites.map( (site, i) => {
                         return <Card className="cool-sites-container__card glowing-box" key={`carousel-item-${i}`} style={{ width: '18rem' }}>
                                     <Card.Img className="cool-sites-container__img" variant="top" src={site.imgUrl} />
-                                    <Card.Body>
-                                        <Card.Title>{site.name}</Card.Title>
+                                    <Card.Body className="d-flex flex-column">
+                                        <Card.Title className="capitalize font-contrast">{site.name}</Card.Title>
                                         <OverlayTrigger
                                             overlay={
                                                 <Tooltip>
@@ -82,14 +82,16 @@ function CoolSitesPage() {
                                             >
                                             <Card.Text  className="cool-sites-container__text">{site.description}</Card.Text>
                                         </OverlayTrigger>
-                                        <a 
+                                    </Card.Body>
+                                    <Card.Footer className="d-flex justify-content-center">
+                                    <a className="btn primary-button"
                                         target="_blank"
                                         rel="noopener noreferrer" 
                                         href={site.url} 
                                         variant="primary">
                                             Go to page
                                             </a>
-                                    </Card.Body>
+                                    </Card.Footer>
                                 </Card>
                     })
                 }
@@ -101,48 +103,3 @@ function CoolSitesPage() {
 }
 
 export default CoolSitesPage;
-
-
-/*
-import React, { useState, useEffect } from 'react';
-import {Carousel} from 'react-bootstrap';
-import Title from '../../components/shared/Title/Title';
-import coolSitesData from '../../data/coolSites.json'
-import './CoolSitesPage.scss'
-import { Link } from 'react-router-dom';
-
-function CoolSitesPage() {
-  const [coolSites, setCoolSites] = useState([]);
-
-  useEffect(() => {
-      setCoolSites(coolSitesData)
-  }, []);
-
-  return (
-    <div className="container cool-sites-container">
-        <Title>Here are some sites you will love! <i className="fas fa-heart"></i> </Title>
-        <Carousel>
-            {   coolSites &&
-                coolSites.map( (site, i) => {
-                    return <Carousel.Item key={`carousel-item-${i}`} className="cool-sites-container__carousel-item">
-                                <a target="_blank" rel="noopener noreferrer" href={site.url}>
-                                    <img
-                                    className="d-block w-100 cool-sites-container__img"
-                                    src={site.imgUrl}
-                                    alt={site.name}
-                                    />
-                                </a>
-                                <Carousel.Caption>
-                                    <h3>{site.name}</h3>
-                                    <p>{site.description}</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                })
-            }
-        </Carousel>
-    </div> 
-  );
-}
-
-export default CoolSitesPage;
- */

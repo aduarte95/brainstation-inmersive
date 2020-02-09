@@ -5,5 +5,5 @@ $footer-height: 43px;
 $footer-margin-top: 25px;
 $navbar-height: 56px;
 $title-top-margin: 16px;
-$footer-calc: $footer-height + $footer-margin-top + $navbar-height + $title-top-margin;
+$footer-calc: $footer-height + $footer-margin-top + $navbar-height;
 $min-height: calc(100vh - #{$footer-calc});
