@@ -18,8 +18,8 @@ function Card({facts, cont, totalFacts, setCont}) {
       <div  className="d-flex justify-content-center flex-wrap">
       { facts && facts.map( (fact, i) => {
          return  cont > i && <div key={`fact-card-${i}`} className="fact-card-container__row glowing-box">
-                        <div className="fact-card-container__col d-flex justify-content-center">
-                        <i class="far fa-star"></i>
+                        <div className="fact-card-container__bullet margin-bottom d-flex justify-content-center">
+                          <i class="far fa-star"></i>
                         </div>
                     
                         <div className="d-flex justify-content-center">

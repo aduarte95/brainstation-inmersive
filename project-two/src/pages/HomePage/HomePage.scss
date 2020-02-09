@@ -15,13 +15,4 @@
 		position: absolute;
 		right: 10%;
 	}
-
-	&__info-chart-appear {
-		opacity: 0.01;
-	}
-  
-	&__info-chart-appear.home-container__info-chart-appear-active {
-		opacity: 1;
-		transition: opacity 1s ease-in;
-	}
 }

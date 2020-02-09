@@ -4,9 +4,9 @@ import './TopImage.scss';
 function TopImage({member}) {
       
   return (   
-            <div className="row justify-content-center">
-                <img className="member-container__img" src={member.imgUrl} alt={member.name}/>
-            </div>
+    <div className="row justify-content-center">
+        <img className="top-img-container__img" src={member.imgUrl} alt={member.name}/>
+    </div>
   );
 }
 

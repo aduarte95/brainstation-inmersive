@@ -6,5 +6,13 @@
         padding: 20px;
         margin: 0;
     }
+}
 
+.info-chart-appear {
+    opacity: 0.01;
+}
+
+.info-chart-appear.info-chart-appear-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
 }

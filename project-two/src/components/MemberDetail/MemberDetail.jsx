@@ -18,22 +18,16 @@ function MemberDetail({match}) {
                 { member &&
                     <div>
                         <Title>{member.name}</Title>
-                        <CSSTransitionGroup
-                            transitionName="home-container__info-chart"
-                            transitionAppear={true}
-                            transitionAppearTimeout={10000}
-                            transitionEnter={false}
-                            transitionLeave={false}>
-                                <div className="member-container__info">
-                                    <InfoChart className="member-container__info-chart">
-                                        Click the star and start to learn about <span className="capitalize">{member.name}</span>
-                                    </InfoChart>
-                                    
-                                </div>
-                        </CSSTransitionGroup>
+
+                        <div className="member-container__info">
+                            <InfoChart className="member-container__info-chart">
+                                Click the star and discover amazing facts about <span className="member-container__member-name">{member.name}</span>
+                            </InfoChart>
+                        </div>
+
                         <TopImage member={member}/>
+
                         <DidYouKnow member={member} totalFacts={totalFacts} setCont={setCont} cont={cont}/>
-                        
                     </div>
                 }
             </div>
