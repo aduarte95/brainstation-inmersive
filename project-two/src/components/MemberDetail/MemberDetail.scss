@@ -14,22 +14,4 @@
         top: 27.5%;
         left: 10%;
     }
-
-    &__clickable-star {
-        font-weight: bold;
-    }
-
-    &__img-star {
-        width: 50%;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    &__text {
-        margin: 0;
-        font-size: 2rem;
-        color: $font-contrast;
-    }
 }
