@@ -10,6 +10,12 @@
 		color: white;
 	}
 
+	&__info-chart {
+		width: 20%;
+		position: absolute;
+		right: 10%;
+	}
+
 	&__info-chart-appear {
 		opacity: 0.01;
 	}

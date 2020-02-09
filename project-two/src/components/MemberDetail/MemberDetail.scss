@@ -5,4 +5,32 @@
         max-width: 25%;
         min-width: 15%;
     }
+    
+    &__info {
+        width: 20%;
+        position: absolute;
+        top: 35%;
+        left: 10%;
+    }
+
+    &__clickable-star {
+        width: 100%;
+        margin-top: -20%;
+        left: 10%;
+        font-weight: bold;
+        color: rebeccapurple;
+    }
+
+    &__img-star {
+        width: 50%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 2rem;
+    }
 }

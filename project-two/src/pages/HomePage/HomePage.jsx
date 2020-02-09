@@ -21,7 +21,7 @@ function HomePage({match}) {
       transitionAppearTimeout={10000}
       transitionEnter={false}
       transitionLeave={false}>
-          <InfoChart>
+          <InfoChart className="home-container__info-chart">
             Hey! Pick any member of the solar system and learn something cool about it!
           </InfoChart>
       </CSSTransitionGroup>

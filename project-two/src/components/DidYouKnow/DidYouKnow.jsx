@@ -3,12 +3,13 @@ import './DidYouKnow.scss';
 import Subtitle from '../shared/Subtitle/Subtitle';
 import Card from '../Card/Card';
 
-function DidYouKnow({member}) {
-      console.log(member)
+
+function DidYouKnow({member, cont}) {
+
   return (   
-            <div>     
+            <div>  
               <Subtitle>Did you know?</Subtitle>
-              <Card facts={member.facts}></Card>
+              <Card facts={member.facts} cont={cont}></Card>
             </div>
   );
 }
