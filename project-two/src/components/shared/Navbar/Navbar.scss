@@ -23,7 +23,6 @@
 .nav-item {
    
 
-   
 
     position: relative;
     &:not(:last-child) {
@@ -45,8 +44,7 @@
     &:focus,
     &:active,
     &.active {
-        background-position: left bottom;
-
+        
       &::after {
         width: 100%;
         left: 0;
@@ -55,21 +53,47 @@
     }
 
     .nav-link {
-        background: linear-gradient(to right, orange 50%, $primary 50%);
+        background: linear-gradient(to right, #2d41a7 50%, $primary 50%);
         background-size: 250% 100%;
         background-position: right bottom;
         transition: background-position .5s ease-out;
-        height: calc(100% - 3px);
+        height: 100%;
+        line-height: 2.4rem;
 
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
+        &:hover {
             background-position: left bottom;
+            color: yellow !important;
+            transition: color .5s ease-in;
     
         }
     }
 }
+
+.navbar-collapse,
+.navbar-nav {
+    height: 100%;
+}
+
+.navbar, 
+.navbar-expand-lg {
+    padding: 0 1em;
+}
+
+.selected-link {
+    position: relative;
+    &::after {display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left:0;
+    right: auto;
+    height: 3px;
+    background-color: $font-contrast;
+    }
+
+}
+
 
 /*
 @import '../../../assets/styles/variables';
