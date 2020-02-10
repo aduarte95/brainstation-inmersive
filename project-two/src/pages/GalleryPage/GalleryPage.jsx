@@ -1,14 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Gallery from 'react-photo-gallery';
+import Carousel, { Modal, ModalGateway } from "react-images";
 import Title from '../../components/shared/Title/Title';
-
-
 
 //CukV5eprkpPGgtJmS5HYDHXPvyZXExupk716UlB0
 
 function GalleryPage() {
-    const [nasaPhotos, setNasaPhotos] = useState([]);
+  const [currentImage, setCurrentImage] = useState(0);
+const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+  
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
+  const [nasaPhotos, setNasaPhotos] = useState([]);
     
      useEffect(() => {
       const random = [{width: 1, height: 1}, {width: 4, height: 3}]
@@ -37,10 +49,23 @@ function GalleryPage() {
       <div>{ nasaPhotos &&
         <div>
           <Title> Nasa photos of the week </Title>
-          <Gallery photos={finalPhotos} />
+          <Gallery photos={finalPhotos} onClick={openLightbox}/>
+          <ModalGateway>
+            {viewerIsOpen ? (
+              <Modal onClose={closeLightbox}>
+                <Carousel
+                  currentIndex={currentImage}
+                  views={finalPhotos.map(x => ({
+                    ...x,
+                    srcset: x.srcSet,
+                    caption: x.title
+                  }))}
+                />
+              </Modal>
+            ) : null}
+          </ModalGateway>
         </div>
       }</div>
-
     )
 }
 
