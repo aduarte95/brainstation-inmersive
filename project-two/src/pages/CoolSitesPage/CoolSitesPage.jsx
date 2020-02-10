@@ -83,7 +83,7 @@ function CoolSitesPage() {
                                             <Card.Text  className="cool-sites-container__text">{site.description}</Card.Text>
                                         </OverlayTrigger>
                                     </Card.Body>
-                                    <Card.Footer className="d-flex justify-content-center">
+                                    <Card.Footer>
                                     <a className="btn primary-button"
                                         target="_blank"
                                         rel="noopener noreferrer" 

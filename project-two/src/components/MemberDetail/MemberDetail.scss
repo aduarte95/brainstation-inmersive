@@ -20,3 +20,12 @@
         color: $font-contrast;
     }
 }
+
+@media (max-width: 992px) {
+    .member-container{
+    
+        &__info {
+            top: auto;
+        }
+    }
+}

@@ -2,9 +2,17 @@
 
 .navbar-container {
     height: $navbar-height;
+    font-size: .9rem;
+    padding-left: 8px;
 
     &__logo-img {
-        filter: invert(1)
+        filter: invert(1);
+        width:50px; 
+        height:50px;
+    }
+
+    &__logo-link {
+        pointer-events: none;
     }
 
     &__logo-text {
@@ -22,10 +30,6 @@
 
 .nav-item {
     position: relative;
-    
-    &:not(:last-child) {
-        margin-right: 1rem;
-    }
       
     &::after {
         display: block;
@@ -51,12 +55,13 @@
     }
 
     .nav-link {
-        background: linear-gradient(to right, #2d41a7 50%, $primary 50%);
+        background: linear-gradient(to right, $contrast-color 50%, $secondary 50%);
         background-size: 250% 100%;
         background-position: right bottom;
         transition: background-position .5s ease-in-out;
         height: 100%;
         line-height: 2.4rem;
+        padding-left: 10px;
 
         &:hover {
             background-position: left bottom;
@@ -67,20 +72,10 @@
     }
 }
 
-.navbar-collapse,
-.navbar-nav {
-    height: 100%;
-}
-
-.navbar, 
-.navbar-expand-lg {
-    padding: 0 1em;
-}
-
 .selected-link {
     position: relative;
     color: white !important;
-    font-size: 1.2rem;
+    font-weight: bolder;
 
     &::after {
         display: block;
@@ -93,5 +88,19 @@
         height: 3px;
         background-color: $font-contrast;
     
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-container {
+      height: fit-content !important;
+    
+        &__logo-link {
+            pointer-events: initial;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }    
     }
 }

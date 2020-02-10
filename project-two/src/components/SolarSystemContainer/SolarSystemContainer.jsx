@@ -7,8 +7,8 @@ function SolarSystemContainer() {
     const { solarSystem } = useSolarSystem();
     
   return (   
-            <div className="ss-container">
-                <div className="d-flex">
+            <div>
+                <div className="ss-container d-flex">
                     {solarSystem.map( (member, i) => {
                             return  <div className={"ss-container__" + member.name + " d-flex align-items-center"} key={`member-${i}`}>
                                         <Link to={`/solar-system-member/${member.id}`}>

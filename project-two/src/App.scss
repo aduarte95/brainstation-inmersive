@@ -2,7 +2,7 @@
 
 html, body {
   margin: 0;
-  color: $base-color-font;
+  color: $primary;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -32,18 +32,16 @@ html, body {
 }
 
 .primary-button {
-		color: white;
-    background-color: #3144a2e7;
+		color: $secondary;
+    background-color: $primary;
+    font-weight: bolder;
     box-sizing: border-box;
     border: 2px solid transparent;
     
     &:hover {
-			color: white;
-			border: 2px solid #dadada;
-      border-radius: 7px;
-      outline: none;
-      border-color: #9ecaed;
-      box-shadow: 0 0 10px #9ecaed;
+			color: $primary;
+      background-color: $contrast-color;
+      font-weight: normal;
     }
 }
 .capitalize {
@@ -71,5 +69,11 @@ html, body {
 }
 
 .primary-background {
-  background-color: $primary;
+  background-color: $background;
+}
+
+@media (max-width: 992px) {
+  html, body {
+    font-size: 20px;
+  }
 }

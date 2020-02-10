@@ -79,3 +79,55 @@ body {
             -webkit-transform: rotate(359deg);
     }
 }
+
+@media (max-width: 992px) {
+    .ss-container {
+        @media (prefers-reduced-motion: no-preference) {
+            &__member-sun {
+              animation: sun-spin 250s linear;
+            }
+          }
+
+        flex-direction: column;
+        align-items: center;
+
+        &__sun {
+            margin-top: -30%;
+            margin-left: -75%;
+            z-index: -1;
+        }
+
+        &__venus {
+            width: 20.86%;
+        }
+    
+        &__uranus {
+            width: 23.64%;
+        }
+    
+        &__saturn {
+            width: 28.37%;
+        }
+    
+        &__neptune {
+            width: 23.53%;
+            margin: 2%;
+        }
+    
+        &__mars {
+            width: 20.48%;
+        }
+    
+        &__earth {
+            width: 20.91%;
+        }
+    
+        &__jupiter {
+            width: 30%;
+        }
+    
+        &__mercury {
+            width: 20.35%;
+        }
+    }
+}
