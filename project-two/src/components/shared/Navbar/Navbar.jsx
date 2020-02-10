@@ -25,7 +25,7 @@ function Navbar() {
     <ul className="navbar-nav mr-auto">
 
       <li className="nav-item active">
-        <Link to="/" className="nav-link"> Home <span className="sr-only">(current)</span></Link>
+        <Link to="/" className="nav-link"> <span className="discover">Home</span> <span className="sr-only">(current)</span></Link>
       </li>
       
       <li className="nav-item">
