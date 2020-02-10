@@ -6,9 +6,16 @@ function Navbar() {
   
   return (
     <nav className="navbar-container navbar navbar-expand-lg navbar-dark primary-background">
-      <Link to="/" className="navbar-brand">
-        <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt=""/>
-        Bootstrap
+      <Link to="/" className="navbar-brand d-flex align-items-center">
+        <img src="https://static.thenounproject.com/png/40868-84.png" width="50" height="50" className="navbar-container__logo-img d-inline-block align-top" alt=""/>
+        <div className="navbar-container__logo-text">
+          <div className="navbar-container__logo-text-1">
+            Little
+          </div> 
+          <div className="navbar-container__logo-text-2">
+            Conquerors
+          </div>
+        </div>
       </Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>

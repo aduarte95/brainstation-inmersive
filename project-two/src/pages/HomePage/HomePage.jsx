@@ -5,13 +5,13 @@ import './HomePage.scss';
 import Title from '../../components/shared/Title/Title';
 import InfoChart from '../../components/shared/InfoChart/InfoChart';
 
-function HomePage({match}) {
+function HomePage() {
   
   return (
     <div className="home-container">
       <Title> Our Solar System
           <span>
-              <img className="home-container__title-img" src="https://img.icons8.com/plasticine/100/000000/rocket.png"/>
+              <img className="home-container__title-img" src="https://static.thenounproject.com/png/2922433-84.png"/>
           </span>
       </Title>
 

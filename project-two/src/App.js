@@ -19,7 +19,7 @@ function App() {
           <Route path="/gallery" component={props => <GalleryPage {...props}/>}  />
           <Route path="/test-me" component={props => <TestMe {...props}/>}  />
           <Route path="/solar-system-member/:id" component={props => <MemberDetail {...props}/>}  />
-          <Route path="/" component={props => <HomePage {...props}/>}  />
+          <Route path="/" component={props => <HomePage/>}  />
         </Switch>
       </div>
       <Footer/>

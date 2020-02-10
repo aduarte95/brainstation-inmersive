@@ -2,4 +2,20 @@
 
 .navbar-container {
     height: $navbar-height;
+
+    &__logo-img {
+        filter: invert(1)
+    }
+
+    &__logo-text {
+        
+        &-1 {
+            text-transform: uppercase;
+        }
+        
+        &-2 {
+            font-family: 'Atma', cursive;
+            margin-top: -0.6rem;
+        }
+    }
 }
