@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './Card.scss';
+import star from '../../assets/images/giphy.gif';
 
 function showFact(totalFacts, cont, setCont) {
   if(cont < totalFacts) {
@@ -29,7 +30,7 @@ function Card({facts, cont, totalFacts, setCont}) {
           })
         }
         <div ref={div} className="fact-card-container__clickable-star d-flex align-items-center justify-content-center ">
-            <img onClick={() => showFact(totalFacts, cont, setCont) } className="fact-card-container__img-star" src="https://media1.giphy.com/media/d7CQt3sSdbwdtNE5ET/giphy.gif" alt="star"/>
+            <img onClick={() => showFact(totalFacts, cont, setCont) } className="fact-card-container__img-star" src={star} alt="star"/>
             <p className="fact-card-container__clickable-text">{cont} / {totalFacts}</p>
         </div>
       </div>  
