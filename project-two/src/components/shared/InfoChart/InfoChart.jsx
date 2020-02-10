@@ -1,11 +1,11 @@
 import React from 'react';
 import './InfoChart.scss';
-import { CSSTransitionGroup } from 'react-transition-group' // ES6
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 function InfoChart({children, className}) {
   
   return (
-    <CSSTransitionGroup
+    <ReactCSSTransitionGroup
       transitionName="info-chart"
       transitionAppear={true}
       transitionAppearTimeout={10000}
@@ -16,7 +16,7 @@ function InfoChart({children, className}) {
               {children}
           </p>
       </div>
-    </CSSTransitionGroup>
+    </ReactCSSTransitionGroup>
   );
 }
 

@@ -1,5 +1,4 @@
 import { useState , useEffect } from "react";
-import solarSystemData from '../data/solarSystem'
 
 export const useFacts = (member) => {
     const [totalFacts, setTotalFacts] = useState(0);
@@ -9,7 +8,7 @@ export const useFacts = (member) => {
       if(member) {
           setTotalFacts(member.facts.length);
       }
-  }, member);
+  }, [member]);
 
   return {
     totalFacts,

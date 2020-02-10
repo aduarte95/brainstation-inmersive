@@ -18,28 +18,20 @@ function QuizForm() {
   function getScore(e) {
     e.preventDefault();
     var score = 0;
-    var totalNumQuestions = 0;
+    var totalNumQuestions = ssQuiz.length;
 
     if(ssQuiz) {
-      ssQuiz.map( (q, i) => {
-        if(q.correctAnswer === Number(selectedAnwers[i])) {
+      
+      for(let i = 0; i < totalNumQuestions; ++i) {
+        if(ssQuiz[i].correctAnswer === Number(selectedAnwers[i])) {
           score++;
         }
-        totalNumQuestions++;
-      })
+      }
     }
 
     setScore((score/totalNumQuestions)*100);
-    
-    // TODO: make a enum.
-    if(score <= 65) {
-      setScoreText(scoreTexts[2])
-    } else if(score === 100) {
-      setScoreText(scoreTexts[1])
-    } else {
-      setScoreText(scoreTexts[0])
-    }
     setShowScore(true);
+    
   }
 
   function setAnswers(e) {
@@ -60,8 +52,18 @@ function QuizForm() {
   }
   
   useEffect(() => {
-    setSsQuiz(ssQuizData);  
-  }, []);
+    setSsQuiz(ssQuizData);
+    
+    if(score <= 65) {
+      setScoreText(scoreTexts[2])
+    } else if(score === 100) {
+      setScoreText(scoreTexts[1])
+    } else {
+      setScoreText(scoreTexts[0])
+    }
+    
+   
+  }, [ssQuiz, score]);
 
   
 

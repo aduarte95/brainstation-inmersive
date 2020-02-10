@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './MemberDetail.scss';
 import { useSolarSystem } from '../../hooks/useSolarSystem';
 import TopImage from '../TopImage/TopImage';
 import DidYouKnow from '../DidYouKnow/DidYouKnow';
 import InfoChart from '../shared/InfoChart/InfoChart';
-import { CSSTransitionGroup } from 'react-transition-group' // ES6
 import Title from '../shared/Title/Title';
 import { useFacts } from '../../hooks/useFacts';
 
