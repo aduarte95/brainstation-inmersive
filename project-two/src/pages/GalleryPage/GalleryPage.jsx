@@ -3,6 +3,7 @@ import axios from 'axios';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Title from '../../components/shared/Title/Title';
+import './GalleryPage.scss';
 
 //CukV5eprkpPGgtJmS5HYDHXPvyZXExupk716UlB0
 
@@ -46,10 +47,14 @@ const [viewerIsOpen, setViewerIsOpen] = useState(false);
     const finalPhotos = nasaPhotos.map((p, index) => ({key: ''+index, ...p}));
 
     return(
-      <div>{ nasaPhotos &&
+      <div className="container gallery-container">{ nasaPhotos &&
         <div>
-          <Title> Nasa photos of the week </Title>
-          <Gallery photos={finalPhotos} onClick={openLightbox}/>
+          <Title> Nasa's photos of the week </Title>
+
+          <div className="gallery-container__photos">
+            <Gallery photos={finalPhotos} onClick={openLightbox}/>
+          </div>
+
           <ModalGateway>
             {viewerIsOpen ? (
               <Modal onClose={closeLightbox}>
