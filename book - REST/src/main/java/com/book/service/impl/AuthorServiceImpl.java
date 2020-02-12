@@ -1,11 +1,12 @@
 package com.book.service.impl;
 
 import com.book.dto.AuthorDTO;
-import com.book.exception.RepeatedNameException;
+import com.book.dto.BookDTO;
 import com.book.model.Author;
 import com.book.model.Book;
 import com.book.repository.AuthorRepository;
 import com.book.service.AuthorService;
+import com.book.service.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,18 +16,20 @@ import java.util.List;
 @Service
 public class AuthorServiceImpl implements AuthorService {
     AuthorRepository authorRepository;
+    BookService bookService;
 
-    public AuthorServiceImpl(AuthorRepository authorRepository) {
+    public AuthorServiceImpl(AuthorRepository authorRepository, BookServiceImpl bookService) {
         this.authorRepository = authorRepository;
+        this.bookService = bookService;
     }
 
     public Author getAuthor(int id) {
         AuthorDTO dto = this.authorRepository.getAuthor(id);
-        ArrayList<Book> books = dto.getBooks();
+        List<Book> books = getBooks(dto.getBooks());
         String name = dto.getName();
         int dtoId = dto.getId();
-        String birthDate = dto.getBirthDate();
-        String deathDate = dto.getDeathDate();
+        Date birthDate = dto.getBirthDate();
+        Date deathDate = dto.getDeathDate();
         String nationality = dto.getNationality();
         String fullName = dto.getFullName();
         String imgUrl = dto.getImgUrl();
@@ -37,29 +40,32 @@ public class AuthorServiceImpl implements AuthorService {
     public Author createAuthor(Author author) {
         AuthorDTO dto = setDTO(author);
 
-        if(!this.authorRepository.exist(dto.getId())) {
-            this.authorRepository.createAuthor(dto);
-            return author;
+        if(!this.authorRepository.existsById(dto.getId())) {
+            return setModel(this.authorRepository.save(dto));
         } else {
             return null;
         }
+
     }
 
     @Override
     public String deleteAuthor(int id) {
-        if(this.authorRepository.exist(id)) {
-            this.authorRepository.deleteAuthor(id);
-            return null;
+        long count = this.authorRepository.count();
+        this.authorRepository.deleteById(id);
+
+        if(count == (count - 1.)) {
+            return "Author deleted successfully";
         } else {
-            return "Doesn't exist";
+            return "Couldn't delete author.";
         }
     }
+
 
     @Override
     public Author updateAuthor(int id, Author author) {
         AuthorDTO dto = setDTO(author);
 
-        if(this.authorRepository.exist(id)) {
+        if(this.authorRepository.existsById(id)) {
             this.authorRepository.updateAuthor(id, dto);
             return author;
         } else {
@@ -69,7 +75,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<Author> getAll() {
-        List<AuthorDTO> authorDTOList = this.authorRepository.getAll();
+        List<AuthorDTO> authorDTOList = this.authorRepository.findAll();
         List<Author> authorList = new ArrayList<Author>();
 
         for(AuthorDTO e: authorDTOList){
@@ -81,22 +87,12 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author addBook(int id, Book book) {
-        if(this.authorRepository.exist(id)) {
-            if(!this.authorRepository.existBook(id, book)) {
-                AuthorDTO dto = this.authorRepository.addBook(id, book);
-
-                return setModel(dto);
-            } else {
-                throw new RepeatedNameException("The book exists.");
-            }
-        } else {
-            return null;
-        }
+        return null;
     }
 
     private AuthorDTO setDTO(Author author) {
         AuthorDTO dto = new AuthorDTO();
-        dto.setBooks(author.getBooks());
+        dto.setBooks(getBooksDTO(author.getBooks()));
         dto.setBirthDate(author.getBirthDate());
         dto.setName(author.getName());
         dto.setId(author.getId());
@@ -110,7 +106,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     private Author setModel(AuthorDTO dto) {
         Author author = new Author();
-        author.setBooks(dto.getBooks());
+        author.setBooks(getBooks(dto.getBooks()));
         author.setBirthDate(dto.getBirthDate());
         author.setName(dto.getName());
         author.setId(dto.getId());
@@ -120,5 +116,25 @@ public class AuthorServiceImpl implements AuthorService {
         author.setImgUrl(dto.getImgUrl());
 
         return author;
+    }
+
+    private List<Book> getBooks(List<BookDTO> bookDto) {
+        List<Book> books = new ArrayList<>();
+
+        for (BookDTO temp : bookDto) {
+            books.add(bookService.setModel(temp));
+        }
+
+        return books;
+    }
+
+    private List<BookDTO> getBooksDTO(List<Book> books) {
+        List<BookDTO> booksDTO = new ArrayList<>();
+
+        for (Book temp : books) {
+            booksDTO.add(bookService.setDTO(temp));
+        }
+
+        return booksDTO;
     }
 }

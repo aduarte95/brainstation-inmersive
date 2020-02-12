@@ -5,14 +5,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Author {
     private int id;
-    private ArrayList<Book> books;
+    private List<Book> books;
     private String name;
-    private String birthDate;
+    private Date birthDate;
     private String fullName;
-    private String deathDate;
+    private Date deathDate;
     private String nationality;
     private String imgUrl;
 
@@ -20,7 +21,7 @@ public class Author {
 
     }
 
-    public Author(int id, String name, ArrayList<Book> books, String birthDate, String fullName, String deathDate, String nationality, String imgUrl) {
+    public Author(int id, String name, List<Book> books, Date birthDate, String fullName, Date deathDate, String nationality, String imgUrl) {
         this.id = id;
         this.name = name;
         this.books = books;
@@ -47,19 +48,19 @@ public class Author {
         this.name = name;
     }
 
-    public ArrayList<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return  birthDate;
     }
 
@@ -79,11 +80,11 @@ public class Author {
         return nationality;
     }
 
-    public void setDeathDate(String deathDate) {
+    public void setDeathDate(Date deathDate) {
         this.deathDate = deathDate;
     }
 
-    public String getDeathDate() {
+    public Date getDeathDate() {
         return deathDate;
     }
 

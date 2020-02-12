@@ -1,8 +1,20 @@
 package com.book.dto;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class UserDTO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
     private String password;
 
     public int getId() {
@@ -27,5 +39,13 @@ public class UserDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

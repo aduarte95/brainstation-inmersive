@@ -1,19 +1,32 @@
 package com.book.dto;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+@Entity
+@Table(name = "book")
 public class BookDTO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String isbn;
+
+    @Column(name = "published_year")
     private int publicationYear;
+
+
     private String genres;
     private String topic;
+
+    @Column(name = "img_url")
     private String imgUrl;
+
+    @ManyToOne
+    @JoinColumn(name="author_id")
+    private AuthorDTO author;
 
     public void setId(int id) {
         this.id = id;

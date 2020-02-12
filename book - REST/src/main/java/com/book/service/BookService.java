@@ -1,5 +1,6 @@
 package com.book.service;
 
+import com.book.dto.BookDTO;
 import com.book.model.Book;
 
 import java.util.ArrayList;
@@ -15,5 +16,9 @@ public interface BookService {
 
     public ArrayList<Book> getAll();
 
-    //public void printList();
+    public Book setModel(BookDTO book);
+
+    public BookDTO setDTO(Book book);
+
+        //public void printList();
 }

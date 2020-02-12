@@ -2,28 +2,45 @@ package com.book.dto;
 
 import com.book.model.Book;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "author")
 public class AuthorDTO {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private ArrayList<Book> books;
+
+    @Column(nullable = false, columnDefinition = "char")
     private String name;
-    private String birthDate;
+
+    @OneToMany(mappedBy = "author")
+    private List<BookDTO> books;
+
+    @Column(name = "birth_date")
+    private Date birthDate;
+
+    @Column(name = "full_name", columnDefinition = "char")
     private String fullName;
-    private String deathDate;
+
+    @Column(name = "death_date")
+    private Date deathDate;
+
+    @Column(columnDefinition = "char")
     private String nationality;
+
+    @Column(name = "img_url", columnDefinition = "char")
     private String imgUrl;
+
 
     public AuthorDTO(){
     }
 
-    public AuthorDTO(int id, String name, ArrayList<Book> books, String birthDate, String fullName, String deathDate, String nationality, String imgUrl) {
+    public AuthorDTO(int id, String name, List<BookDTO> books, Date birthDate, String fullName, Date deathDate, String nationality, String imgUrl) {
         this.id = id;
         this.name = name;
         this.books = books;
@@ -50,19 +67,19 @@ public class AuthorDTO {
         this.name = name;
     }
 
-    public ArrayList<Book> getBooks() {
+    public List<BookDTO> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<Book> books) {
+    public void setBooks(List<BookDTO> books) {
         this.books = books;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return  birthDate;
     }
 
@@ -82,11 +99,11 @@ public class AuthorDTO {
         return nationality;
     }
 
-    public void setDeathDate(String deathDate) {
+    public void setDeathDate(Date deathDate) {
         this.deathDate = deathDate;
     }
 
-    public String getDeathDate() {
+    public Date getDeathDate() {
         return deathDate;
     }
 
@@ -98,9 +115,9 @@ public class AuthorDTO {
         return imgUrl;
     }
 
-    public void addBook(Book book) {
+    public void addBook(BookDTO book) {
         if(this.books == null) {
-            this.books = new ArrayList<Book>();
+            this.books = new ArrayList<>();
         }
         this.books.add(book);
     }

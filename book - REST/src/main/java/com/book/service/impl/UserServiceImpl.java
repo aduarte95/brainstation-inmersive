@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
         if(verifyUser(user)) {
             UserDTO userDTO = setDTO(user);
-            validPassword = this.userRepository.verifyPassword(userDTO);
+           // validPassword = this.userRepository.verifyPassword(userDTO);
         }
 
         return validPassword;

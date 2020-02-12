@@ -19,30 +19,33 @@ public class BookServiceImpl implements BookService {
     }
 
     public Book createBook(Book book) {
-        if (validateCanCreate(book)) {
-            this.bookRepository.addBook(setDTO(book));
+       // if (validateCanCreate(book)) {
+         //   this.bookRepository.addBook(setDTO(book));
 
             return book;
-        } else {
-            return null;
-        }
+        //} else {
+          //  return null;
+        //}
     }
 
     public Book getBook(int id) {
-        BookDTO bookDTO = this.bookRepository.getBook(id);
+        //BookDTO bookDTO = this.bookRepository.getBook(id);
 
-        return setModel(bookDTO);
+        //return setModel(bookDTO);
+        return null;
     }
 
     public ArrayList<Book> getAll() {
-        ArrayList<BookDTO> bookDTOList = this.bookRepository.getAll();
-        ArrayList<Book> bookList = new ArrayList<Book>();
+       // ArrayList<BookDTO> bookDTOList = this.bookRepository.getAll();
+        //ArrayList<Book> bookList = new ArrayList<Book>();
 
-        for(BookDTO e: bookDTOList){
-            bookList.add(setModel(e));
-        }
+        //for(BookDTO e: bookDTOList){
+          //  bookList.add(setModel(e));
+        //}
 
-        return bookList;
+        //return bookList;
+
+        return null;
     }
 
     private boolean validateCanCreate(Book book) {
@@ -61,7 +64,8 @@ public class BookServiceImpl implements BookService {
     }
 
     private boolean existsCode(String code) {
-        return this.bookRepository.existsIsbn(code);
+        //return this.bookRepository.existsIsbn(code);
+        return false;
     }
 
     private boolean validateBook(Book book) {
@@ -74,7 +78,7 @@ public class BookServiceImpl implements BookService {
         return hasEmptyFields;
     }
 
-    private BookDTO setDTO(Book book) {
+    public BookDTO setDTO(Book book) {
         BookDTO bookDTO = new BookDTO();
         bookDTO.setIsbn(book.getIsbn());
         bookDTO.setName(book.getName());
@@ -87,7 +91,7 @@ public class BookServiceImpl implements BookService {
         return bookDTO;
     }
 
-    private Book setModel(BookDTO bookDTO) {
+    public Book setModel(BookDTO bookDTO) {
         Book book = new Book();
         book.setIsbn(bookDTO.getIsbn());
         book.setName(bookDTO.getName());
@@ -103,7 +107,9 @@ public class BookServiceImpl implements BookService {
     private boolean searchRecurrences(Book book) {
         BookDTO bookDTO = setDTO(book);
 
-        return this.bookRepository.searchRecurrences(bookDTO);
+        //return this.bookRepository.searchRecurrences(bookDTO);
+
+        return false;
     }
 
      /*public void deleteBook(int id) {
