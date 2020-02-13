@@ -24,7 +24,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     public Author getAuthor(int id) {
-        AuthorDTO dto = this.authorRepository.getAuthor(id);
+        AuthorDTO dto = this.authorRepository.findById(id);
         List<Book> books = getBooks(dto.getBooks());
         String name = dto.getName();
         int dtoId = dto.getId();
@@ -66,8 +66,8 @@ public class AuthorServiceImpl implements AuthorService {
         AuthorDTO dto = setDTO(author);
 
         if(this.authorRepository.existsById(id)) {
-            this.authorRepository.updateAuthor(id, dto);
-            return author;
+           // this.authorRepository.updateAuthor(id, dto);
+            return setModel(this.authorRepository.save(dto));
         } else {
             return null;
         }

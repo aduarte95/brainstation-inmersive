@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
 
     private UserDTO setDTO(User user) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setPassword(user.getPassword());
-        userDTO.setUsername(user.getUsername());
+        //userDTO.setPassword(user.getPassword());
+        //userDTO.setUsername(user.getUsername());
 
         return userDTO;
     }

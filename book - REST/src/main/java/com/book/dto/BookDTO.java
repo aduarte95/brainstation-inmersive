@@ -1,27 +1,31 @@
 package com.book.dto;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "book")
 public class BookDTO {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "char")
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, columnDefinition = "char")
     private String isbn;
 
     @Column(name = "published_year")
-    private int publicationYear;
+    private LocalDateTime publicationYear;
 
+    @Column(columnDefinition = "char")
+    private String genre;
 
-    private String genres;
+    @Column(columnDefinition = "char")
     private String topic;
 
-    @Column(name = "img_url")
+    @Column(name = "img_url", columnDefinition = "char")
     private String imgUrl;
 
     @ManyToOne
@@ -52,20 +56,21 @@ public class BookDTO {
         return isbn;
     }
 
-    public void setPublicationYear(int publicationYear) {
+    public void setPublicationYear(LocalDateTime publicationYear) {
         this.publicationYear = publicationYear;
     }
 
-    public int getPublicationYear() {
+    public LocalDateTime getPublicationYear() {
         return publicationYear;
     }
 
     public void setGenres(String genres) {
-        this.genres = genres;
+        this.genre = genres;
     }
 
+
     public String getGenres() {
-        return genres;
+        return genre;
     }
 
     public void setTopic(String topic) {

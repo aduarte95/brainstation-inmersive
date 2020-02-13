@@ -4,20 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 public class Book {
     private int id;
 
     private String name;
     private String isbn;
-    private int publicationYear;
+    private LocalDateTime publicationYear;
     private String genres;
     private String topic;
     private String imgUrl;
 
     public Book(){}
 
-    public Book(int id, String name, String isbn, int publicationYear, String genres, String topic, String imgUrl) {
+    public Book(int id, String name, String isbn, LocalDateTime publicationYear, String genres, String topic, String imgUrl) {
         this.id = id;
         this.name = name;
         this.isbn = isbn;
@@ -51,11 +52,11 @@ public class Book {
         return isbn;
     }
 
-    public void setPublicationYear(int publicationYear) {
+    public void setPublicationYear(LocalDateTime publicationYear) {
         this.publicationYear = publicationYear;
     }
 
-    public int getPublicationYear() {
+    public LocalDateTime getPublicationYear() {
         return publicationYear;
     }
 

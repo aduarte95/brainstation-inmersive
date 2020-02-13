@@ -12,9 +12,4 @@ public interface AuthorRepository extends JpaRepository<AuthorDTO, Integer> {
     List<AuthorDTO> findByName(String name);
 
     AuthorDTO findById(int id);
-
-    AuthorDTO getAuthor(int id);
-
-    @Query("UPDATE Author a SET a.name = :author.name, a.full_name = :author.full_name WHERE a.id = :id")
-    AuthorDTO updateAuthor(@Param("id") int id, @Param("author")AuthorDTO author);
 }

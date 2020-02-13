@@ -79,16 +79,17 @@ public class BookServiceImpl implements BookService {
     }
 
     public BookDTO setDTO(Book book) {
-        BookDTO bookDTO = new BookDTO();
+        /*BookDTO bookDTO = new BookDTO();
         bookDTO.setIsbn(book.getIsbn());
         bookDTO.setName(book.getName());
         bookDTO.setPublicationYear(book.getPublicationYear());
         bookDTO.setId(book.getId());
         bookDTO.setGenres(book.getGenres());
         bookDTO.setTopic(book.getTopic());
-        bookDTO.setImgUrl(book.getImgUrl());
+        bookDTO.setImgUrl(book.getImgUrl());*/
 
-        return bookDTO;
+        //return bookDTO;
+        return null;
     }
 
     public Book setModel(BookDTO bookDTO) {

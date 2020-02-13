@@ -1,21 +1,23 @@
 package com.book.dto;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Table(name = "user")
 public class UserDTO {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, columnDefinition = "char")
     private String username;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, columnDefinition = "char")
     private String email;
 
-    private String password;
+    @Column(columnDefinition = "blob")
+    private byte[] password;
 
     public int getId() {
         return id;
@@ -25,11 +27,11 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getPassword() {
+    public byte[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(byte[] password) {
         this.password = password;
     }
 

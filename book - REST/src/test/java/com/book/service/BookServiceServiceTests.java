@@ -29,7 +29,6 @@ public class BookServiceServiceTests {
         book.setId(1);
         book.setIsbn("1");
         book.setName("Brave World");
-        book.setPublicationYear(1954);
     }
 
     @Test

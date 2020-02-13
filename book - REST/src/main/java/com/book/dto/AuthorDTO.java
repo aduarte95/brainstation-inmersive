@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "author")
 public class AuthorDTO {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false, columnDefinition = "char")
