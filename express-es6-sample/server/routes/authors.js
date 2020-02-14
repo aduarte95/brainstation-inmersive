@@ -2,14 +2,22 @@ import express from 'express';
 import authorService from '../services/authorService';
 var router = express.Router();
 
-const { getAuthorsFromDAO, saveAuthorToDAO, findByIdFromDAO } = authorService();
-
 /* GET author listing. */
-router.get('/', function(req, res) {
-  res.status(200);
-  res.send(getAuthorsFromDAO());
+router.get("/", function(req, res) {
+  authorService.getAll(function(err, result) {
+    res.json(result);
+  });
 });
 
+router.post("/", function(req, res, next) {
+  authorService.createAuthor(req.body);
+  res.send({
+    status: 200,
+    message: "success"
+  });
+});
+
+/*
 router.post('/', function(req, res) {
   res.send(saveAuthorToDAO(req.body));
 });
@@ -26,6 +34,6 @@ router.post('/:id', function(req, res) {
 
 router.get('/:id/books', function(req, res) {
   res.send('books');
-});
+});*/
 
 export default router;

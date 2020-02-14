@@ -1,20 +1,23 @@
-import authorDAO from '../dao/authorDAO';
-import Author from '../models/authorModel';
+import authors from '../models/author';
 import AuthorDTO from '../dto/authorDTO';
+import author from '../models/author';
 
-const { getAuthors, saveAuthor, findById } = authorDAO();
 
-export default function authorService() {
+const getAll = (cb) => {
+    authors.find({}, cb)
+}
 
-    function getAuthorsFromDAO() {
-        var authors = getAuthors().map( dto => {
-            return setModel(dto);
-        });
+const createAuthor = author => {
+    authors.create(author);
+}
 
-        return authors;
-    }
+export default {
+  getAll,
+  createAuthor
+};
 
-    function saveAuthorToDAO(author) {
+
+    /*function saveAuthorToDAO(author) {
         saveAuthor(setDTO(author));
 
         return 'Author saved successfully'
@@ -40,5 +43,5 @@ export default function authorService() {
         findByIdFromDAO
     }
 
-}
+}*/
 
