@@ -1,14 +1,13 @@
 import AuthorDTO from '../dto/authorDTO';
-import Author from '../models/authorModel';
 
-var authorList = [ new Author('Aldoux', 1985, {
+var authorList = [ new AuthorDTO(1, 'Aldoux', 1985, {
     id: '1',
     published_year: '2019-05-03',
     name: 'Book',
     genre: 'genere',
-    author_id: '2'
+    author_id: '1'
 }),
-new AuthorDTO('Aldoux', 1985, {
+new AuthorDTO(2,'George', 1985, {
     id: '2',
     published_year: '2019-05-03',
     name: 'Book',
@@ -26,8 +25,12 @@ export default function authorDAO() {
         authorList.push(authorDTO);
     }
 
+    function findById(id) {
+        return authorList.find( dto => dto.id === Number(id));
+    }
     return {
         getAuthors,
-        saveAuthor
+        saveAuthor,
+        findById
     }
 }

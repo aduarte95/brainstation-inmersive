@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
 
-const { getAuthorsFromDAO, saveAuthorToDAO } = authorService();
+const { getAuthorsFromDAO, saveAuthorToDAO, findByIdFromDAO } = authorService();
 
 /* GET author listing. */
 router.get('/', function(req, res) {
@@ -18,7 +18,9 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  res.send('author by id');
+  const { id } = req.params;
+  
+  res.send(findByIdFromDAO(id));
 });
 
 router.post('/:id', function(req, res) {
