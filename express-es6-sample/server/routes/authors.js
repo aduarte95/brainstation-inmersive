@@ -5,7 +5,9 @@ var router = express.Router();
 /* GET author listing. */
 router.get("/", function(req, res) {
   authorService.getAll(function(err, result) {
-    res.json(result);
+    res.json(result.map(element => {
+      return authorService.setModel(element);
+  }));
   });
 });
 

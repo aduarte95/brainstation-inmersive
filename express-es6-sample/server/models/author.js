@@ -8,6 +8,7 @@ const authorSchema = new Schema(
     name: String,
     fullName: String,
     birthdate: Date,
+    img_url: String,
     books: Array
   },
   { strict: true }
