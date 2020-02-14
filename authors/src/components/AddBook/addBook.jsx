@@ -52,7 +52,7 @@ function AddBook({match}) {
     }
 
     function handleSubmit(event) {
-        axios.post(`http://localhost:8080/author/${match.params.authorId}`, {  
+        axios.post(`http://localhost:3000/api/v1/author/${match.params.authorId}`, {  
         name: book.name,
         isbn: book.isbn,
         publicationYear: book.publicationYear,
@@ -60,7 +60,7 @@ function AddBook({match}) {
         topic: book.topic,
         imgUrl: book.imgUrl,
 
-        }).then( response => {console.log('hi'); setRedirect(true);});
+        }).then( response => setRedirect(true));
         
         event.preventDefault();
     }

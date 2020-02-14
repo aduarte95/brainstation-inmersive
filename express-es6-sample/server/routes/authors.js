@@ -6,7 +6,7 @@ var router = express.Router();
 router.get("/", function(req, res) {
   authorService.getAll(function(err, result) {
     res.json(result.map(element => {
-      
+
       return authorService.setModel(element);
   }));
   });
@@ -20,6 +20,15 @@ router.post("/", function(req, res, next) {
   });
 });
 
+router.post("/:id", function(req, res, next) {
+  const { id } = req.params;
+  
+  authorService.addBook(req.body, id);
+  res.send({
+    status: 200,
+    message: "success"
+  });
+});
 /*
 router.post('/', function(req, res) {
   res.send(saveAuthorToDAO(req.body));

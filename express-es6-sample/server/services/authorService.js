@@ -10,15 +10,28 @@ const createAuthor = author => {
     authors.create(author);
 }
 
+const addBook = (book, id) => {
+    authors.findOneAndUpdate(
+        { _id: id }, 
+        { $push: { books: book } },
+       function (error, success) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 console.log(success);
+             }
+         });
+}
+
 const setModel = dto => {
-    console.log(dto.nationality)
     return new Author(dto.id, dto.name, dto.full_name, dto.birth_date, dto.death_date, dto.nationality, dto.img_url, dto.books);
 }
 
 export default {
   getAll,
   createAuthor, 
-  setModel
+  setModel,
+  addBook
 };
 
 

@@ -5,7 +5,7 @@ export const useAuthors = () => {
     const [authors, setAuthors] = useState([]);
   
     useEffect(() => {
-      axios.get("http://localhost:3000/api/v1/authors").then(response => {
+      axios.get("http://localhost:3000/api/v1/author").then(response => {
       setAuthors(response.data);
       });    
     }, []);
@@ -18,7 +18,7 @@ export const useAuthors = () => {
       const author = authors.find(author => author.id === authorId);
 
       if(author) {
-        return author.books.find(book => book.id === bookId);
+        return author.books.find(book => book.id === Number(bookId));
       } else {
         return author;
       }
