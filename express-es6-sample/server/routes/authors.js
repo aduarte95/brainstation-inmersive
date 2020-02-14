@@ -1,9 +1,6 @@
 import express from 'express';
 import authorService from '../services/authorService';
 var router = express.Router();
-const bodyParser = require('body-parser');
-
-router.use(bodyParser.json());
 
 const { getAuthorsFromDAO, saveAuthorToDAO, findByIdFromDAO } = authorService();
 
@@ -19,7 +16,7 @@ router.post('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   const { id } = req.params;
-  
+
   res.send(findByIdFromDAO(id));
 });
 
