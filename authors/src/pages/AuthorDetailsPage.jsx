@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 function AuthorDetailsPage({match}) {
   const { getAuthor } = useAuthors();
   const author = getAuthor(match.params.id);
-
+  
   return (
     <div>{ author &&
       <Details detailed={author} photoType={"author-type"}>

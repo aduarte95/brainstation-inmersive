@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function BookCarousel({authorId, books}) {
-    
+    console.log(books)
     return (
         <div className="container carousel">
             <div className="d-flex justify-content-center">

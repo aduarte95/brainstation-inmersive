@@ -5,20 +5,20 @@ export const useAuthors = () => {
     const [authors, setAuthors] = useState([]);
   
     useEffect(() => {
-      axios.get("http://localhost:8080/author").then(response => {
+      axios.get("http://localhost:3000/api/v1/authors").then(response => {
       setAuthors(response.data);
       });    
     }, []);
 
     const getAuthor = (id) => {
-      return authors.find(author => author.id === Number(id) );
+      return authors.find(author => author.id === id );
     };
 
     const getAuthorBook = (authorId, bookId) => {
-      const author = authors.find(author => author.id === Number(authorId) );
+      const author = authors.find(author => author.id === authorId);
 
       if(author) {
-        return author.books.find(book => book.id === Number(bookId));
+        return author.books.find(book => book.id === bookId);
       } else {
         return author;
       }

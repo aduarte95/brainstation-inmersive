@@ -1,10 +1,12 @@
 export default class AuthorModel {
-    constructor(id, name, fullName, birthdate, img_url, books){
+    constructor(id, name, fullName, birthDate, deathDate, nationality, imgUrl, books){
         this.id = id;
         this.name = name;
         this.fullName = fullName;
-        this.birthdate = birthdate;
-        this.img_url = img_url;
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
+        this.nationality = nationality;
+        this.imgUrl = imgUrl;
         this.books = books;
     }
 }

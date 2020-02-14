@@ -11,7 +11,8 @@ const createAuthor = author => {
 }
 
 const setModel = dto => {
-    return new Author(dto.id, dto.name, dto.fullName, dto.birthdate, dto.img_url, dto.books);
+    console.log(dto.nationality)
+    return new Author(dto.id, dto.name, dto.full_name, dto.birth_date, dto.death_date, dto.nationality, dto.img_url, dto.books);
 }
 
 export default {
