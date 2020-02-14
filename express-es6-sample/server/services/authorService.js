@@ -1,7 +1,8 @@
 import authorDAO from '../dao/authorDAO';
 import Author from '../models/authorModel';
+import AuthorDTO from '../dto/authorDTO';
 
-const { getAuthors } = authorDAO();
+const { getAuthors, saveAuthor } = authorDAO();
 
 export default function authorService() {
 
@@ -10,12 +11,19 @@ export default function authorService() {
             return new Author(dto.name, dto.birthdate, dto.books);
         });
 
-        console.log(authors);
         return authors;
     }
 
+    function saveAuthorToDAO(author) {
+        const authorDTO = new AuthorDTO(author.name, author.birthdate, author.books);
+        saveAuthor(authorDTO);
+
+        return 'Author saved successfully'
+    }
+
     return {
-        getAuthorsFromDAO
+        getAuthorsFromDAO,
+        saveAuthorToDAO
     }
 
 }

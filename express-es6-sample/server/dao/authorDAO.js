@@ -22,7 +22,12 @@ export default function authorDAO() {
         return authorList;
     }
 
+    function saveAuthor(authorDTO) {
+        authorList.push(authorDTO);
+    }
+
     return {
-        getAuthors
+        getAuthors,
+        saveAuthor
     }
 }
